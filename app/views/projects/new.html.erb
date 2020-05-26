@@ -1,13 +1,8 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-6">
     <div class="card p-3">
-      <div class= "card header">Share a DIY lesson</div>
-      <%= simple_form_for @packet do |f| %>
+      <%= simple_form_for @project do |f| %>
         <%= f.input :title %>
-        <%= f.input :category %>
-        <%= f.input :media_type %>
-        <%= f.input :description %>
-        <%= f.input :media, as: :file %>
         <div class="d-flex justify-content-between">
           <%= f.button :submit, class: "btn btn-warning" %>
           <%= link_to "Back", root_path, class: "btn btn-warning" %>
@@ -16,4 +11,3 @@
     </div>
   </div>
 </div>
-    
