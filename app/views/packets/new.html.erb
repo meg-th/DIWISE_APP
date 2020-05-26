@@ -1,0 +1,16 @@
+<div class="container p-3 d-flex justify-content-around">
+  <div class="col-6">
+    <div class="card p-3">
+      <%= simple_form_for @packet do |f| %>
+        <%= f.input :title %>
+        <%= f.input :category %>
+        <%= f.input :media_type %>
+        <div class="d-flex justify-content-between">
+          <%= f.button :submit, class: "btn btn-warning" %>
+          <%= link_to "Back", root_path, class: "btn btn-warning" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+    
