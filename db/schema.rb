@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_155016) do
+ActiveRecord::Schema.define(version: 2020_05_26_105246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "packet_ratings", force: :cascade do |t|
+    t.bigint "packet_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["packet_id"], name: "index_packet_ratings_on_packet_id"
+    t.index ["user_id"], name: "index_packet_ratings_on_user_id"
+  end
+
+  create_table "packets", force: :cascade do |t|
+    t.string "media_type"
+    t.string "category"
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_packets_on_user_id"
+  end
+
+  create_table "project_packets", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "packet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["packet_id"], name: "index_project_packets_on_packet_id"
+    t.index ["project_id"], name: "index_project_packets_on_project_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +59,17 @@ ActiveRecord::Schema.define(version: 2020_05_25_155016) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "packet_ratings", "packets"
+  add_foreign_key "packet_ratings", "users"
+  add_foreign_key "packets", "users"
+  add_foreign_key "project_packets", "packets"
+  add_foreign_key "project_packets", "projects"
+  add_foreign_key "projects", "users"
 end
