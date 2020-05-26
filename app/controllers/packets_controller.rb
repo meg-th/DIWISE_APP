@@ -1,4 +1,8 @@
 class PacketsController < ApplicationController
+  def index
+    @packets = Packet.all
+  end
+  
   def new
     @packet = Packet.new
   end
