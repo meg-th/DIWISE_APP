@@ -7,13 +7,16 @@ class PacketsController < ApplicationController
     @packet = Packet.new(packets_params)
     @packet.user = current_user
     if @packet.save
-
+      redirect_to  packets_path
+    else
+      render :new
+    end
   end
   
   private
 
   def packets_params
-    params.require    
+    params.require(:packet).permit(:media_type, :category, :title, :description)    
   end
-  
+
 end
