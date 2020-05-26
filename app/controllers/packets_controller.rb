@@ -16,7 +16,7 @@ class PacketsController < ApplicationController
   private
 
   def packets_params
-    params.require(:packet).permit(:media_type, :category, :title, :description)    
+    params.require(:packet).permit(:media_type, :category, :title, :description, :media)    
   end
 
 end
