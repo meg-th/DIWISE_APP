@@ -4,7 +4,7 @@
       <div class= "card header">Share a DIY lesson</div>
       <%= simple_form_for @packet do |f| %>
         <%= f.input :title %>
-        <%= f.input :category %>
+        <%= f.input :category, collection: Packet::CATEGORIES %>
         <%= f.input :media_type %>
         <%= f.input :description %>
         <%= f.input :media, as: :file %>

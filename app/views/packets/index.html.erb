@@ -1,17 +1,12 @@
-<h1>Your packets</h1>
+<div class= "container">
+  <h1>All available packets</h1>
+</div>
+
 
 <div class="container p-3">
   <div class="row">
     <% @packets.each do |packet| %>
-      <div class="col-4">
-        <div class="card p-3 mb-3">
-          <div class="d-flex justify-content-between">
-            <h3><%= packet.title %></h3>
-            <p><%= packet.category %></p>
-          </div>
-          <p><%= packet.description %></p>
-        </div>
-      </div>
+      <%= render "shared/packet_card" %>
     <% end %>
   </div>
   <%= link_to "Back", root_path, class: "btn btn-warning" %>
