@@ -1,0 +1,2 @@
+class PacketRatingsController < ApplicationController
+end
