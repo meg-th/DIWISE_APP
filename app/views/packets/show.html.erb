@@ -1,0 +1,15 @@
+<div class="container p-3 d-flex justify-content-around">
+  <div class="col-6">
+    <div class="card p-3">
+      <h1><%= @packet.title %></h1>
+      <p><%= @packet.description %></p>
+      <%= simple_form_for [@packet, @project_packet] do |f| %>
+        <%= f.input :project, collection: current_user.projects %>
+        <div class="d-flex justify-content-between">
+          <%= f.submit 'Add this packet', class: "btn btn-warning" %>
+          <%= link_to "Back", packets_path, class: "btn btn-warning" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

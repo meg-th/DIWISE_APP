@@ -4,13 +4,15 @@
   <div class="row">
     <% @packets.each do |packet| %>
       <div class="col-4">
-        <div class="card p-3 mb-3">
-          <div class="d-flex justify-content-between">
-            <h3><%= packet.title %></h3>
-            <p><%= packet.category %></p>
+        <%= link_to packet_path(packet), class: "text-decoration-none" do %>
+          <div class="card p-3 mb-3">
+            <div class="d-flex justify-content-between">
+              <h3><%= packet.title %></h3>
+              <p><%= packet.category %></p>
+            </div>
+            <p><%= packet.description %></p>
           </div>
-          <p><%= packet.description %></p>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
