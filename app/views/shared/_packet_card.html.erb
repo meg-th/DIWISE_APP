@@ -1,14 +1,16 @@
-<div class = "card">
-  <div class = "card-body text-primary">
-	<%= packet.title %>
-	<%= packet.media %>
-	<%= @packet.youtube_id %>
-  </div>
-  <div class = "card-body text-secondary">
-  	<%= packet.description %>
-  	<strong><%= packet.category %></strong>
-  </div>	
-</div>
+<% @packets.each do |packet| %>
+	<div class = "card">
+		<div class = "card-body text-primary">
+		<%= link_to packet.title, packet_path(packet)  %>
+		<%= packet.media %>
+		<%#= @packet.youtube_id %>
+		</div>
+		<div class = "card-body text-secondary">
+			<%= packet.description %>
+			<strong><%= packet.category %></strong>
+		</div>	
+	</div>
+<% end %>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DU-vHvogSqs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<%# <iframe width="560" height="315" src="https://www.youtube.com/embed/DU-vHvogSqs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> %>

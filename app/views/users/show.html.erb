@@ -9,12 +9,12 @@
       <h2>You don’t have any projects!</h2>
     <% else %>
       <h2>Your Projects</h2>
+    <% end %>
 
-
-      <% @user.projects.each do |project| %>
-        <ul class="">
-          <li><h3 class=""><%= link_to project.name, project_path(project) %></h3></li>
-        </ul>
-      <% end %>
+    <% @user.projects.each do |project| %>
+      <ul class="">
+        <li><h3 class=""><%= link_to project.title, project_path(project) %></h3></li>
+      </ul>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,13 @@
+
+<div class="container p-3">
+  <div class="row">
+    <% @packets.each do |packet| %>
+      <div class = "card">
+		    <div class = "card-body text-primary">
+          <%= packet.title %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Back", user_path(current_user), class: "btn btn-warning" %>
+</div>
