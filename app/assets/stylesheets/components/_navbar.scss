@@ -1,6 +1,7 @@
 .navbar-diwise {
   background: white;
   display: flex;
+  justify-content: space-between;
 }
 
 .navbar-right {
@@ -15,6 +16,7 @@
   width: 40px;
 }
 
-fa {
-	color: green;
+.navbar .filter-form {
+	position: relative;
+	right: 230px;
 }

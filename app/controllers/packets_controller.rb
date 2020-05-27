@@ -1,6 +1,11 @@
 class PacketsController < ApplicationController
   def index
-    @packets = Packet.all.order(vote: :desc)
+
+    if params[:query].present?
+      @packets = Packet.search_by_title_and_category(params[:query])
+    else 
+      @packets = Packet.all.order(vote: :desc)
+    end 
   end
 
   def new
@@ -11,7 +16,7 @@ class PacketsController < ApplicationController
     @packet = Packet.new(packets_params)
     @packet.user = current_user
     if @packet.save
-      redirect_to packet_path(@packet)
+      redirect_to packets_path
     else
       render :new
     end
