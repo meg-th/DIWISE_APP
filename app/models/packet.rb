@@ -10,12 +10,12 @@ class Packet < ApplicationRecord
   before_save :render_url
 
   def render_url
-    youtube_url.gsub!('https://www.youtube.com/watch?', '')
+    youtube_url.gsub!('https://www.youtube.com/watch?v=', '')
   end
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_category,
       against: [ :title, :category ],
-      using: {tsearch: { prefix: true }
+      using: {tsearch: { prefix: true }}
 end
 
