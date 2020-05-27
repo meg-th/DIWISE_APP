@@ -1,12 +1,20 @@
-.navbar-lewagon {
-  justify-content: space-between;
+.navbar-diwise {
   background: white;
+  display: flex;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-right {
+  justify-content: flex-end;
+}
+
+.navbar-diwise .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-diwise .navbar-brand img {
   width: 40px;
+}
+
+fa {
+	color: green;
 }

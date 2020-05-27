@@ -1,10 +1,13 @@
 <% @packets.each do |packet| %>
 	<div class = "card">
 		<div class = "card-body text-primary">
-		<%= link_to packet.title, packet_path(packet) %>
-		<%= packet.media %>
+		<%= link_to packet.title, packet_path(packet)  %>
 		<%#= @packet.youtube_id %>
 		</div>
+
+      <% if packet.video.attached? %>
+        <iframe width='200px' height='200px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder="0"></iframe>
+      <% end %>
 		<div class = "card-body text-secondary">
 			<%= packet.description %>
 			<strong><%= packet.category %></strong>
