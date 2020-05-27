@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
 
   resources :projects, only: [:new, :create]
+  resources :users, only: [:show]
 end

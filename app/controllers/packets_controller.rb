@@ -16,6 +16,12 @@ class PacketsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @packet = Packet.find(params[:id])
+    @project_packet = ProjectPacket.new
+  end
+  
   
   private
 
