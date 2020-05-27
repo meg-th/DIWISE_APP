@@ -2,7 +2,7 @@ class PacketsController < ApplicationController
   def index
     @packets = Packet.all
   end
-  
+
   def new
     @packet = Packet.new
   end
@@ -11,7 +11,7 @@ class PacketsController < ApplicationController
     @packet = Packet.new(packets_params)
     @packet.user = current_user
     if @packet.save
-      redirect_to  packets_path
+      redirect_to packet_path(packet)
     else
       render :new
     end
@@ -21,12 +21,12 @@ class PacketsController < ApplicationController
     @packet = Packet.find(params[:id])
     @project_packet = ProjectPacket.new
   end
-  
-  
+
+
   private
 
   def packets_params
-    params.require(:packet).permit(:media_type, :category, :title, :description, :media)    
+    params.require(:packet).permit(:category, :title, :description, :video, :youtube_url, photos: [])
   end
 
 end

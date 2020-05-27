@@ -2,9 +2,14 @@
   <div class="col-6">
     <div class="card p-3">
       <h1><%= @packet.title %></h1>
-      <p><%= @packet.description %></p>
-      <%= simple_form_for [@packet, @project_packet] do |f| %>in
-        <%= f.input :project, collection: current_user.projects %>
+      <p>Summary: <%= @packet.description %></p>
+
+      <!-- if packet.media.attached present show -->
+      <% if @packet.youtube_url %>
+        <iframe width='200px' height='200px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder="0"></iframe>
+      <% end %>
+      <%= simple_form_for [@packet, @project_packet] do |f| %>
+        <%= f.input :project, label: "Add this to my project", collection: current_user.projects %>
         <div class="d-flex justify-content-between">
           <%= f.submit 'Add this packet', class: "btn btn-warning" %>
           <%= link_to "Back", packets_path, class: "btn btn-warning" %>
@@ -13,3 +18,4 @@
     </div>
   </div>
 </div>
+
