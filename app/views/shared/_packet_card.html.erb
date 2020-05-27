@@ -12,6 +12,12 @@
 			<%= packet.description %>
 			<strong><%= packet.category %></strong>
 		</div>
+		<div class="d-flex justify-content-end align-items-center mb-3" data-controller="counter">
+			<button class="btn btn-outline-secondary border-0 p-1" data-action="click->counter#refresh">
+				<i class="fas fa-plus" data-index-number="<%= packet.id %>"></i>
+			</button>				
+			<span class="ml-1 mr-3 badge badge-warning p-2" data-target="counter.count" id="vote_counter_<%= packet.id %>"><%= packet.vote %></span>
+		</div>
 	</div>
 <% end %>
 

@@ -1,6 +1,6 @@
 class PacketsController < ApplicationController
   def index
-    @packets = Packet.all
+    @packets = Packet.all.order(vote: :desc)
   end
 
   def new
@@ -20,6 +20,21 @@ class PacketsController < ApplicationController
   def show
     @packet = Packet.find(params[:id])
     @project_packet = ProjectPacket.new
+    respond_to do |format|
+      format.html
+      format.json { render json: { packet: @packet } }
+    end
+  end
+  
+  def add_vote
+    @packet = Packet.find(params[:packet_id])
+    @packet.vote += 1
+    if @packet.save
+      # redirect_to  packets_path
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
 
