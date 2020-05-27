@@ -1,4 +1,6 @@
 class Packet < ApplicationRecord
+  CATEGORIES = [ "Activities for Kids", "Arts and Crafts", "Automotives and Bicycles", "Electronics", "Fashion and Textiles", "Games", "Horticulture and Gardening", "Interior Decorating", "Photography and Media", "Plumbing", "Re-using and Re-cyling", "Self-Care", "Woodworking and Carpentry"]
+  MEDIA_TYPES = ["Photo", "Video", "Text"]
   belongs_to :user
   validates :media_type, presence: true
   validates :category, presence: true
