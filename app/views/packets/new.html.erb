@@ -1,12 +1,12 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-6">
     <div class="card p-3">
-      <div class= "card header">Share a DIY lesson</div>
+      <div class= "card-header">Share Your DIY-WISdom</div>
       <%= simple_form_for @packet do |f| %>
         <%= f.input :title %>
-        <%= f.input :category, collection: Packet::CATEGORIES %>
-        <%= f.input :media_type %>
         <%= f.input :description %>
+        <%= f.input :category, collection: Packet::CATEGORIES %>
+        <%= f.input :media_type, collection: Packet::MEDIA_TYPES, as: :radio_buttons %>
         <%= f.input :media, as: :file %>
         <div class="d-flex justify-content-between">
           <%= f.button :submit, class: "btn btn-warning" %>
