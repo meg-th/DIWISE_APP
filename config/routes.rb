@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :project_packets, only: [:create]
   end
 
-  resources :projects, only: [:new, :create]
+  resources :projects, only: [:new, :create, :show]
+  resources :users, only: [:show]
 end
