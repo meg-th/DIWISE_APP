@@ -2,19 +2,11 @@
   <h1>All available packets</h1>
 </div>
 
-<% @packets.each do |packet| %>
-      <%= render "shared/packet_card" %>
-      <%= link_to packet_path(packet), class: "text-decoration-none" do %>
-    <% end %>
 
-  <div class="btn-group">
-    <%= link_to "Packet", method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-up"></span>
-      Upvote
-      <%#= post.get_upvotes.size %>
-    <% end %>
-  </div><br>
-
+<div class="container p-3">
+  <div class="row">
+    <%= render "shared/packet_card" %>
+  </div>
   <%= link_to "Back", root_path, class: "btn btn-warning" %>
 </div>
 
