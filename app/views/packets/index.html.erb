@@ -1,11 +1,11 @@
 <div class= "container">
   <h1>All available packets</h1>
 </div>
-    <% @packets.each do |packet| %>
+
+<% @packets.each do |packet| %>
       <%= render "shared/packet_card" %>
       <%= link_to packet_path(packet), class: "text-decoration-none" do %>
     <% end %>
-  </div>
 
   <div class="btn-group">
     <%= link_to "Packet", method: :put, class: "btn btn-default btn-sm" do %>

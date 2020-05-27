@@ -4,8 +4,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project.user = current_user
     @project = Project.new(project_params)
+    @project.user = current_user
     if @project.save
       redirect_to packets_path
     else
@@ -13,6 +13,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @project = Project.find(params[:id])
+    @packets = @project.packets
+  end
+  
   private
 
   def project_params
