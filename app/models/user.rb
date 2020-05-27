@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :packets
   has_many :project_packets, through: :projects, source: :packet
   has_many :packet_ratings
+  has_one_attached :photo
 end
