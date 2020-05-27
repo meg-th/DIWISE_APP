@@ -6,7 +6,7 @@
 
       <!-- if packet.media.attached present show -->
       <% if @packet.youtube_url %>
-        <iframe width='200px' height='200px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder="0"></iframe>
+        <iframe width='200px' height='200px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder=""></iframe>
       <% end %>
       <%= simple_form_for [@packet, @project_packet] do |f| %>
         <%= f.input :project, label: "Add this to my project", collection: current_user.projects %>
