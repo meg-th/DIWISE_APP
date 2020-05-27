@@ -3,7 +3,7 @@
     <div class="card p-3">
       <h1><%= @packet.title %></h1>
       <p><%= @packet.description %></p>
-      <%= simple_form_for [@packet, @project_packet] do |f| %>
+      <%= simple_form_for [@packet, @project_packet] do |f| %>in
         <%= f.input :project, collection: current_user.projects %>
         <div class="d-flex justify-content-between">
           <%= f.submit 'Add this packet', class: "btn btn-warning" %>

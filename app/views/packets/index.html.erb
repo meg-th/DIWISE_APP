@@ -5,10 +5,7 @@
 
 <div class="container p-3">
   <div class="row">
-    <% @packets.each do |packet| %>
-      <%= render "shared/packet_card" %>
-      <%= link_to packet_path(packet), class: "text-decoration-none" do %>
-    <% end %>
+    <%= render "shared/packet_card" %>
   </div>
   <%= link_to "Back", root_path, class: "btn btn-warning" %>
 </div>
