@@ -14,7 +14,9 @@
 		<div class="d-flex justify-content-end align-items-center mb-3">
 			<!-- check if the user has a packet rating already -->
       <% if packet.packet_ratings.where(user: current_user).empty? %>
-        <%= link_to "upvote +", packet_packet_ratings_path(packet), method: :post, remote: true %>
+        <%= link_to packet_packet_ratings_path(packet), method: :post, remote: true do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
       <% end %>
 			<span class="ml-1 mr-3 badge badge-warning p-2" id="packet-<%= packet.id %>"><%= packet.rating %></span>
 		</div>
