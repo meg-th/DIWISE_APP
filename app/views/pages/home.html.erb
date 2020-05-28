@@ -11,12 +11,10 @@
   	<%= link_to "Create a new packet", new_packet_path, class: "btn btn-warning" %>
   	<%= link_to "Show all packets", packets_path, class: "btn btn-warning"  %>
 
+    <div>
+      <%= render 'shared/packet_card', packets: @packets %>
+    </div>
   </div>
-
-  		
-
-
-
 
 <!-- link_to "User", user_path(current_user), class: "btn btn-warning"  -->
 
