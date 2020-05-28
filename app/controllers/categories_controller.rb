@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   def show
-  	@category = Category.find(params[:category_id])
-  	@category.packet = @packet
+  	@category = Category.find(params[:id])
+  	@packets = @category.packets
   end
+
+
 end

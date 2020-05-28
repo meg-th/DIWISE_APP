@@ -1,2 +1,5 @@
 <h1>Categories#show</h1>
 <p>Find me in app/views/categories/show.html.erb</p>
+ <%= @packets.each do |packet|%>
+   <%= render "shared/packet_card" %>
+ <% end %>
