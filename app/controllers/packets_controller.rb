@@ -4,7 +4,7 @@ class PacketsController < ApplicationController
       @packets = Packet.search_by_title_and_category(params[:query])
     else
 
-      @packets = Packet.all.sort_by{|packet| packet.rating}
+      @packets = Packet.all.sort_by{|packet| -packet.rating}
 
     end
   end
