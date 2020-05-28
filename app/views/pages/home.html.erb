@@ -1,20 +1,15 @@
-  <div class= "container">
-  	<div class="wrapper">
-  	  <div class= "jumbotron" style="background-image: url(https://res.cloudinary.com/dynjb5ftd/image/upload/v1590656895/DI_WISE/oxa-roxa-oHoOrmEms38-unsplash_hp9u1x.jpg); background-size: 100%">
-  	  <div class="container text-center" >
-  	  	<h1>Anyone. Any Project.</h1>
-  	  	<h3>Join the online community doing it all themselves.</h3>
-  	  </div>
-  	  </div>
-  	</div>
-
-  	<%= link_to "Create a new packet", new_packet_path, class: "btn btn-warning" %>
-  	<%= link_to "Show all packets", packets_path, class: "btn btn-warning"  %>
-
-    <div>
-      <%= render 'shared/packet_card', packets: @packets %>
-    </div>
+<div class = "banner" style="background-image: linear-gradient(180deg, rgba(196, 196, 196, 0.56) 0%, rgba(255, 255, 255, 0) 100%), url(https://res.cloudinary.com/dynjb5ftd/image/upload/v1590656895/DI_WISE/oxa-roxa-oHoOrmEms38-unsplash_hp9u1x.jpg);">
+  <div class="container text-center" >
+    <h1 class = "mb-4">Anyone. Any Project.</h1>
+    <h3 class = "my-4">Join the online community doing it all themselves.</h3>
+    <a class = "my-6"><%= link_to "Browse DIY", packets_path, class: "btn btn-success"  %></a>
   </div>
+</div>
+<div class ="container border-bottom border-dark" width=50%>
+  <h3 class= "text-center mt-5 ">Trending Projects</h3>
+  <%= render 'shared/packet_card', packets: @packets %>
+</div>
+
 
 <!-- link_to "User", user_path(current_user), class: "btn btn-warning"  -->
 
