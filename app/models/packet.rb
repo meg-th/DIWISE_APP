@@ -6,7 +6,7 @@ class Packet < ApplicationRecord
   validates :description, presence: true
   validates :photos, presence: true
   has_many_attached :photos
-  has_one_attached :video
+  # has_one_attached :video
   before_save :render_url
   has_many :packet_ratings
 

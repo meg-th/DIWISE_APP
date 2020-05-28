@@ -1,18 +1,24 @@
 <% @packets.each do |packet| %>
 	<div class = "card">
 		<div class = "card-body text-primary">
-		<%= link_to packet.title, packet_path(packet)  %>
+		<h2><strong><%= link_to packet.title, packet_path(packet) %></strong></h2>
 	</div>
 
-      <% if packet.video.attached? %>
-        <iframe width='200px' height='200px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder="0"></iframe>
+      <% if packet.youtube_url %>
+        <iframe width='560px' height='315px' src="http://www.youtube.com/embed/<%= packet.youtube_url %>", frameborder="0"></iframe>
       <% end %>
 		<div class = "card-body text-secondary">
 			<%= packet.description %>
 			<strong><%= packet.category.name %></strong>
 		</div>
-<%# <iframe width="560" height="315" src="https://www.youtube.com/embed/DU-vHvogSqs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> %>
 
+<!--     <div class="d-flex justify-content-end align-items-center mb-3" data-controller="counter"> -->
+<!-- 			<button class="btn btn-outline-secondary border-0 p-1" data-action="click->counter#refresh"> -->
+<!-- 				<i class="fas fa-plus" data-index-number="<%#= packet.id %>"></i> -->
+<!-- 			</button> -->
+<!-- 			<span class="ml-1 mr-3 badge badge-warning p-2" data-target="counter.count" id="vote_counter_<%#= packet.id %>"><%#= packet.vote %></span> -->
+<!-- 		</div> -->
+    
 		<div class="d-flex justify-content-end align-items-center mb-3">
 			<!-- check if the user has a packet rating already -->
       <% if packet.packet_ratings.where(user: current_user).empty? %>
