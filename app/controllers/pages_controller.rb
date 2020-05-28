@@ -4,4 +4,5 @@ class PagesController < ApplicationController
   def home
     @packets = Packet.all.sort_by{|packet| -packet.rating}.first(3)
   end
+
 end
