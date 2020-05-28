@@ -4,7 +4,7 @@ class PacketsController < ApplicationController
       @packets = Packet.search_by_title_and_category(params[:query])
     else
 
-      @packets = Packet.all.order(vote: :desc)
+      @packets = Packet.all.sort_by{|packet| -packet.rating}
 
     end
   end
@@ -42,8 +42,7 @@ class PacketsController < ApplicationController
         format.js
       end
     end
-=======
->>>>>>> master
+
   end
 
   private

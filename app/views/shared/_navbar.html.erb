@@ -3,7 +3,7 @@
   <%= link_to root_path, class: "navbar-brand" do %>
     DI-WISE
   <% end %>
-  
+
   <!-- Search Form DON'T TOUCH - PAWS OFF  -->
   <div class="filter-form">
     <%= form_tag packets_path, class: 'form-inline', method: :get do %>
@@ -11,7 +11,7 @@
       <%= submit_tag "Search", class: "btn btn-success"%>
     <% end %>
   </div>
-  
+
   <!-- Nav Buttons -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class = "navbar-nav my-auto ">
@@ -26,7 +26,7 @@
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar-bordered dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
-            <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+            <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span style="font-size: 2rem;">
                 <span style="color: #6dde89;">
                   <i class="fas fa-plus-circle"></i>
@@ -42,10 +42,10 @@
         <% else %>
           <li class="nav-item active">
             <a><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
-            <a><%= link_to "Sign Up", href="#", class: "nav-link"%></a>
+            <a><%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%></a>
           </li>
       <% end %>
-   </ul> 
+   </ul>
   </div>
 </div>
 

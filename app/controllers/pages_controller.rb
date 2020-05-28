@@ -2,6 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @packets = Packet.order(vote: :desc).limit(3)
+    @packets = Packet.all.sort_by{|packet| -packet.rating}.first(3)
   end
 end
