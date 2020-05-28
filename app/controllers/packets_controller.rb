@@ -1,11 +1,12 @@
 class PacketsController < ApplicationController
   def index
-
     if params[:query].present?
       @packets = Packet.search_by_title_and_category(params[:query])
-    else 
+    else
+
       @packets = Packet.all.order(vote: :desc)
-    end 
+
+    end
   end
 
   def new
@@ -25,12 +26,13 @@ class PacketsController < ApplicationController
   def show
     @packet = Packet.find(params[:id])
     @project_packet = ProjectPacket.new
+
     respond_to do |format|
       format.html
       format.json { render json: { packet: @packet } }
     end
   end
-  
+
   def add_vote
     @packet = Packet.find(params[:packet_id])
     @packet.vote += 1
@@ -40,8 +42,9 @@ class PacketsController < ApplicationController
         format.js
       end
     end
+=======
+>>>>>>> master
   end
-
 
   private
 

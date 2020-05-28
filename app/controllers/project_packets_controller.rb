@@ -1,4 +1,4 @@
-class ProjectPacketsController < ApplicationController  
+class ProjectPacketsController < ApplicationController
   def create
     @packet = Packet.find(params[:packet_id])
     @project_packet = ProjectPacket.new
