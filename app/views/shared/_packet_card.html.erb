@@ -1,7 +1,7 @@
 <% @packets.each do |packet| %>
 	<div class = "card">
 		<div class = "card-body text-primary">
-		<%= link_to packet.title, packet_path(packet)  %>		
+		<%= link_to packet.title, packet_path(packet)  %>
 	</div>
 
       <% if packet.video.attached? %>
@@ -11,14 +11,14 @@
 			<%= packet.description %>
 			<strong><%= packet.category %></strong>
 		</div>
-		<div class="d-flex justify-content-end align-items-center mb-3" data-controller="counter">
-			<button class="btn btn-outline-secondary border-0 p-1" data-action="click->counter#refresh">
-				<i class="fas fa-plus" data-index-number="<%= packet.id %>"></i>
-			</button>				
-			<span class="ml-1 mr-3 badge badge-warning p-2" data-target="counter.count" id="vote_counter_<%= packet.id %>"><%= packet.vote %></span>
+		<div class="d-flex justify-content-end align-items-center mb-3">
+			<!-- check if the user has a packet rating already -->
+      <% if packet.packet_ratings.where(user: current_user).empty? %>
+        <%= link_to packet_packet_ratings_path(packet), method: :post, remote: true do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+      <% end %>
+			<span class="ml-1 mr-3 badge badge-warning p-2" id="packet-<%= packet.id %>"><%= packet.rating %></span>
 		</div>
 	</div>
 <% end %>
-
-
-<%# <iframe width="560" height="315" src="https://www.youtube.com/embed/DU-vHvogSqs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> %>
