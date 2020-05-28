@@ -1,6 +1,6 @@
 class Packet < ApplicationRecord
-  CATEGORIES = [ "Activities for Kids", "Arts and Crafts", "Automotives and Bicycles", "Electronics", "Fashion and Textiles", "Games", "Horticulture and Gardening", "Interior Decorating", "Photography and Media", "Plumbing", "Re-using and Re-cyling", "Self-Care", "Woodworking and Carpentry"]
   belongs_to :user
+  belongs_to :category
   validates :category, presence: true
   validates :title, presence: true
   validates :description, presence: true

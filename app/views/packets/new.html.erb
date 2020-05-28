@@ -4,7 +4,7 @@
       <div class= "card-header">Share Your DI-WISdom</div>
       <%= simple_form_for @packet do |f| %>
         <%= f.input :title, label: '1) Title your handy work!' %>
-        <%= f.input :category, label: '2) What category shall we put it in?', collection: Packet::CATEGORIES %>
+        <%= f.association :category %>
         <%= f.input :description, label: '3) Summarise your masterpiece', input_html: { maxlength: 120, size: 120} %>
         <%= f.input :description, label: '4) Step by step (you can edit this later)', input_html: { maxlength: 500, size: 500} %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label: '5) Show us photos of how it looks!' %>
