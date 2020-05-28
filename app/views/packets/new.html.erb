@@ -7,8 +7,8 @@
         <%= f.input :category, label: '2) What category shall we put it in?', collection: Packet::CATEGORIES %>
         <%= f.input :description, label: '3) Summarise your masterpiece', input_html: { maxlength: 120, size: 120} %>
         <%= f.input :description, label: '4) Step by step (you can edit this later)', input_html: { maxlength: 500, size: 500} %>
+        <%= f.input :video, as: :file, label: 'Upload your own video' %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label: '5) Show us photos of how it looks!' %>
-        <%= f.input :video, as: :file, input_html: { multiple: true }, label: 'Upload your own video' %>
         <%= f.input :youtube_url, label: '6) Or paste a Youtube URL', input_html: { maxlength: 500, size: 500} %>
         <%#= f.input :text, as: :file, input_html: { multiple: true }, label: 'Show us how it looks!' %>
         <div class="d-flex justify-content-between">
