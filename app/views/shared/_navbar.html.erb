@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-diwise">
+<div class="navbar navbar-expand-sm navbar-dark navbar-diwise" style="background-color:#212121;" >
   <!-- Logo -->
   <div class= "d-flex">
     <%= link_to root_path, class: "navbar-brand" do %>
@@ -46,6 +46,7 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Account", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Add a DIY Upload", new_packet_path, class: "btn btn-warning", class: "dropdown-item" %>
             <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
           </div>
         </li>
