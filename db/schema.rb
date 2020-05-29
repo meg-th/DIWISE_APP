@@ -61,9 +61,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_182148) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
     t.string "youtube_url"
-    t.integer "vote", default: 0
-    t.string "video"
     t.bigint "category_id"
+    t.string "video"
     t.index ["category_id"], name: "index_packets_on_category_id"
     t.index ["user_id"], name: "index_packets_on_user_id"
   end
