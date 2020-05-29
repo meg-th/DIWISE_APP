@@ -1,13 +1,18 @@
-
-<div class="container p-3">
-  <div class="row">
-    <% @packets.each do |packet| %>
-      <div class = "card">
-		    <div class = "card-body text-primary">
-          <%= packet.title %>
-        </div>
-      </div>
+<div class="container">
+  <div class="row justify-content-center mt-3">
+    <% if @packets.empty? %>
+      <h2>You haven't added any packet yet!</h2>
+    <% else %>
+    <div>
+      <h3><strong><%= @project.title %></strong></h3>
+    </div>
+    <div class="container grid p-3">
+      <%= render 'shared/packet_card', packets: @packets %>
+    </div>
     <% end %>
   </div>
-  <%= link_to "Back", user_path(current_user), class: "btn btn-warning" %>
+
+  <div class="row justify-content-center mb-3">
+    <%= link_to "Back", user_path(current_user), class: "btn btn-warning" %>
+  </div>
 </div>
