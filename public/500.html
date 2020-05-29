@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>We're sorry, but something went wrong (500)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
+  /* .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
     text-align: center;
@@ -50,17 +51,50 @@
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  } */
+
+  .background {
+      width: 100vw;
+      height: 100vh;
+      background-image: url("/500.jpg");
+      background-size: contain;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    #button {
+      background-color: #1EDD88;
+      border: none;
+      padding: 8px;
+      border-radius: 2px;
+      font-size: large;
+      font-family: none;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+    }
+    
+    #button:hover {
+      background-color: #19BB73;
+      color: white;
+    }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
   <div class="dialog">
-    <div>
+    <!-- <div>
       <h1>We're sorry, but something went wrong.</h1>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
+  </div> -->
+  <div class="background">
+    <form>
+      <input id="button" type="button" value="Go back!" onclick="history.back()">
+    </form>
   </div>
 </body>
 </html>
