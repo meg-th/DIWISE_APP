@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      redirect_to packets_path
+      redirect_to user_path(current_user)
     else
       render :new
     end
