@@ -12,7 +12,7 @@ class Packet < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_category,
-      against: [ :title, :category ],
+      against: [ :title, :category_id ],
       using: {tsearch: { prefix: true }}
 
   def render_url
