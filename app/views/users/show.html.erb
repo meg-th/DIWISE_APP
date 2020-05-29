@@ -1,22 +1,54 @@
-<div class = "container">
-  <div class = "row">
-    <div class="col-5">
-      <h1>Welcome back, <%= @user.username %></h1>
-    </div>
-    <div class="col-7">
-      <% if @user.projects.empty? %>
-        <h2>You don’t have any projects!</h2>
-      <% else %>
-        <h2>Your Projects</h2>
-      <% end %>
-      <% @user.projects.each do |project| %>
-        <ul class="">
-          <li><h3 class=""><%= link_to project.title, project_path(project) %></h3></li>
-        </ul>
-      <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="user-card hovercard">
+          <div class="cardheader">
+          </div>
+          <div class="avatar">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar-bordered dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+             <% end %>
+            </div>
+          <div class="info">
+              <div class="title">
+                <h1>Hello, <%= @user.username %></h1>
+              </div>
+              <div class="desc">Di-wiser <%= current_user.id %></div>
+              <div class="desc">Curious developer</div>
+              <div class="desc">Tech geek</div>
+          </div>
+          <div class="bottom">
+              <a href="#"><i id="btn-twitter" class="fab fa-twitter"></i></a>
+              <a href="#"><i id="btn-insta" class="fab fa-instagram"></i></a>
+              <a href="#"><i id="btn-fb" class="fab fa-facebook"></i></a>
+              <a href="#"><i id="btn-github" class="fab fa-github"></i></a>
+          </div>
+      </div>
+
+      <div class="col-8">
+        <% if @user.projects.empty? %>
+          <h2>You don’t have any projects yet!</h2>
+        <% else %>
+          <h2>Your Projects</h2>
+          <div class="my-projects">
+
+  <!--           <#% if @project.packet.photos %>
+              <#% packet.photos.each do |photo| %>
+              <%#= cl_image_tag photo.key, crop: :fill %>
+            <%# end %> -->
+
+            <!-- # insert project packet photo -->
+            <div class="card-product-infos">
+              <% @user.projects.each do |project| %>
+                <h2><%= link_to project.title, project_path(project) %></h2>
+                <p>Project description with <strong>relevant info</strong> only.</p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <a class= "mx-4"><%= link_to "Add a New Project", new_project_path, class: "btn btn-success" %></a>
     </div>
   </div>
 </div>
-
 
