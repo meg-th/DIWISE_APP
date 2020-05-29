@@ -1,18 +1,13 @@
-<div class="cards">
-  <% @packets.each do |packet| %>
-    <div class="card">
-      <% if packet.youtube_url.present? %>
+<%= @packets.each do |packet| %>
+  <div class ="card diwise-card">
+    <% if packet.youtube_url.present? %>
+      <div class = "container">
         <iframe height='315px' src="http://www.youtube.com/embed/<%= packet.youtube_url %>", frameborder="0"></iframe>
-      <% elsif packet.photos.any? %>
-        <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= packet.title %></h5>
-        <span class="badge badge-warning"><%= packet.category&.name %></span>
-        <p class="card-text"><%= packet.description %></p>
-        <%= link_to 'Start packet', packet_path(packet), class: "btn btn-primary" %>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% elsif packet.photos.any? %>
+      <%= cl_image_tag packet.photos.first.key %>
+    <% end %>
+  </div>
+<% end %>
+
 
