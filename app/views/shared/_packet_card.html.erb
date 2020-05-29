@@ -6,12 +6,12 @@
       <% elsif packet.photos.any? %>
         <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
       <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= packet.title %></h5>
-        <span class="badge badge-warning"><%= packet.category&.name %></span>
-        <p class="card-text"><%= packet.description %></p>
-        <%= link_to 'Start packet', packet_path(packet), class: "btn btn-primary" %>
-      </div>
+        <div class="card-body ">
+          <h5 class="card-title"><%= packet.title %></h5>
+          <span class="badge badge-warning"><%= packet.category&.name %></span>
+          <p class="card-text"><%= packet.description %></p>
+          <%= link_to 'Look inside', packet_path(packet), class: "btn btn-primary" %>
+        </div>
     </div>
   <% end %>
 </div>
