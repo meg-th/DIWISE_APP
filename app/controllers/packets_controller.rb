@@ -17,10 +17,13 @@ class PacketsController < ApplicationController
     @packet = Packet.new(packets_params)
     @packet.user = current_user
     if @packet.save
-      uploaded_file = Cloudinary::Uploader.upload_large(params[:packet][:video].tempfile, :resource_type => :video)
-      @packet.update!(video: uploaded_file['secure_url'])
+      if params[:packet][:video]
+        uploaded_file = Cloudinary::Uploader.upload_large(params[:packet][:video].tempfile, :resource_type => :video)
+        @packet.update!(video: uploaded_file['secure_url'])
+      end
       redirect_to packets_path
     else
+      raise
       render :new
     end
   end
@@ -50,7 +53,7 @@ class PacketsController < ApplicationController
   private
 
   def packets_params
-    params.require(:packet).permit(:category, :title, :description, :youtube_url, photos: [])
+    params.require(:packet).permit(:category_id, :title, :description, :youtube_url, photos: [])
   end
 
 end
