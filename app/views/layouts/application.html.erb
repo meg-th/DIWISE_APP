@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <%= favicon_link_tag 'black-logo.png' %> 
+  <%= favicon_link_tag 'black-logo.png' %>
 
   <title><%= meta_title %></title>
   <meta name="description" content="<%= meta_description %>">
@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="<%= meta_title %>">
   <meta name="twitter:description" content="<%= meta_description %>">
   <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
-  <meta name="twitter:image:src" content="<%= meta_image %>"> 
+  <meta name="twitter:image:src" content="<%= meta_image %>">
 <%
 =end %>
 
@@ -35,7 +35,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
-
+    <div class="min-height">
+      <%= yield %>
+    </div>
+    <%= render "shared/footer" %>
   </body>
 </html>
