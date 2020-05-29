@@ -2,6 +2,10 @@
   background: white;
   display: flex;
   justify-content: space-between;
+  .nav-item {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .navbar-right {

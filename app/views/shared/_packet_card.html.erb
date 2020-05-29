@@ -1,33 +1,18 @@
-<% @packets.each do |packet| %>
-	<div class = "card">
-		<div class = "card-body text-primary">
-		<h2><strong><%= link_to packet.title, packet_path(packet) %></strong></h2>
-	</div>
-
-      <% if packet.youtube_url %>
-        <iframe width='560px' height='315px' src="http://www.youtube.com/embed/<%= packet.youtube_url %>", frameborder="0"></iframe>
+<div class="cards">
+  <% @packets.each do |packet| %>
+    <div class="card">
+      <% if packet.youtube_url.present? %>
+        <iframe height='315px' src="http://www.youtube.com/embed/<%= packet.youtube_url %>", frameborder="0"></iframe>
+      <% elsif packet.photos.any? %>
+        <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
       <% end %>
-		<div class = "card-body text-secondary">
-			<%= packet.description %>
-			<strong><%= packet.category.name %></strong>
-		</div>
-
-<!--     <div class="d-flex justify-content-end align-items-center mb-3" data-controller="counter"> -->
-<!-- 			<button class="btn btn-outline-secondary border-0 p-1" data-action="click->counter#refresh"> -->
-<!-- 				<i class="fas fa-plus" data-index-number="<%#= packet.id %>"></i> -->
-<!-- 			</button> -->
-<!-- 			<span class="ml-1 mr-3 badge badge-warning p-2" data-target="counter.count" id="vote_counter_<%#= packet.id %>"><%#= packet.vote %></span> -->
-<!-- 		</div> -->
-    
-		<div class="d-flex justify-content-end align-items-center mb-3">
-			<!-- check if the user has a packet rating already -->
-      <% if packet.packet_ratings.where(user: current_user).empty? %>
-        <%= link_to packet_packet_ratings_path(packet), method: :post, remote: true do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
-      <% end %>
-			<span class="ml-1 mr-3 badge badge-warning p-2" id="packet-<%= packet.id %>"><%= packet.rating %></span>
-		</div>
-	</div>
-<% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= packet.title %></h5>
+        <span class="badge badge-warning"><%= packet.category&.name %></span>
+        <p class="card-text"><%= packet.description %></p>
+        <%= link_to 'Start packet', packet_path(packet), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
