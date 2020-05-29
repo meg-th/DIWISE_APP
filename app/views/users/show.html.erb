@@ -10,6 +10,7 @@
     <% else %>
       <h2>Your Projects</h2>
     <% end %>
+    <a class= "mx-4"><%= link_to "Add a New Project", new_project_path, class: "btn btn-success" %></a>
 
     <% @user.projects.each do |project| %>
       <ul class="">

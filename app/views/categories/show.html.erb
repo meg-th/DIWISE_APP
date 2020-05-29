@@ -1,5 +1,15 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
- <%= @packets.each do |packet|%>
-   <%= render "shared/packet_card" %>
- <% end %>
+<div class="container-fluid">
+  <div class="col-sm-5">
+    <h1><%= @category.name%></h1>
+    <p><%= @category.description %></p>
+  </div>
+</div>
+<div>
+  <div class="col-sm-7">
+  	<%= @packets.each do |packet|%>
+  	  <%= render "shared/packet_card" %>
+  	<% end %>
+  </div>
+</div>
+
+
