@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+<i class="fad fa-camera"></i>
+
 Category.create(name: 'Activities for Kids', description: 'Any acitivities and craft projects to be enjoyed by adults and children alike.', font_awesome_icon: 'fas fa-child')
 Category.create(name: 'Arts and Crafts', description: 'Get creative! We want to see all of your hacks for making art!', font_awesome_icon: 'fas fa-palette')
 Category.create(name: 'Automobiles and Bikes', description: 'Tips for customising, fixing, and creating anything with wheels!', font_awesome_icon: 'fas fa-cogs')
