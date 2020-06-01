@@ -6,9 +6,14 @@ Rails.application.routes.draw do
   resources :packets, only: [:new, :create, :index, :show] do
     resources :packet_ratings, only: [:create] # upvote
     resources :project_packets, only: [:create]
+    resources :chatrooms, only: [:create]
   end
 
-  resources :projects, only: [:new, :create, :show]
   resources :users, only: [:show]
+  resources :projects, only: [:new, :create, :show]
   resources :categories, only: [:show]
+  resources :chatrooms, only: [:show] do
+    resources :messages, only: [:create]
+  end
+
 end

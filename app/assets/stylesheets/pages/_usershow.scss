@@ -28,6 +28,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .user-card .card-heading {
@@ -208,7 +209,6 @@
 }
 
 .user-card.hovercard .cardheader {
-    background: url("cover1.jpg");
     background-size: cover;
     height: 135px;
 }
@@ -255,4 +255,48 @@
     margin-bottom: 17px;
 }
 
-// .btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
+.notification {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.notification .notification-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.notification p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.notification small {
+  color: #999999;
+  font-weight: bold;
+}
+.notification .notification-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+.notification:hover .notification-actions {
+  opacity: 1;
+}
+
+.notification .notification-actions a {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.notification .notification-actions a:hover {
+  color: #555555;
+}
