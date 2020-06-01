@@ -7,6 +7,8 @@ class PacketsController < ApplicationController
     elsif params["popularity"] == "on" && params[:query].present?
       @packets = Packet.search_by_title_and_category(params[:query]).sort_by{|packet| - packet.rating}
       # raise
+    elsif params["popularity"] == "on"
+      @packets = Packet.all.sort_by{|packet| - packet.rating}
     else
       @packets = Packet.all.sort_by{|packet| - packet.id}
     end
