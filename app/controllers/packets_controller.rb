@@ -37,6 +37,7 @@ class PacketsController < ApplicationController
   def show
     @packet = Packet.find(params[:id])
     @project_packet = ProjectPacket.new
+    @packet_tool = PacketTool.new
 
     respond_to do |format|
       format.html
@@ -59,7 +60,7 @@ class PacketsController < ApplicationController
   private
 
   def packets_params
-    params.require(:packet).permit(:category_id, :title, :description, :youtube_url, photos: [])
+    params.require(:packet).permit(:tool_id, :category_id, :title, :description, :youtube_url, photos: [])
   end
 
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :packets, only: [:new, :create, :index, :show] do
     resources :packet_ratings, only: [:create] # upvote
     resources :project_packets, only: [:create]
+    resources :packet_tools, only: [:create]
     resources :chatrooms, only: [:create]
   end
 

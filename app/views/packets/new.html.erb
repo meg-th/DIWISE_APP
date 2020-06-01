@@ -5,6 +5,7 @@
       <%= simple_form_for @packet do |f| %>
         <%= f.input :title, label: '1) Title your handy work!' %>
         <%= f.association :category %>
+        <%= f.input :packet_tool.tool, as: :select2, collection: Tool.all, multiple: true %>
         <%= f.input :description, label: '3) Summarise your masterpiece', input_html: { maxlength: 120, size: 120} %>
         <%#= f.input :description, label: '4) Step by step (you can edit this later)', input_html: { maxlength: 500, size: 500} %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label: '5) Show us photos of how it looks!' %>
@@ -19,6 +20,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- toggle
 

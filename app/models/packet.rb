@@ -1,7 +1,7 @@
 class Packet < ApplicationRecord
+  before_save :render_url
   belongs_to :user
   belongs_to :category
-  
   has_many_attached :photos, dependent: :destroy
   has_many :packet_ratings, dependent: :destroy
 
@@ -9,10 +9,11 @@ class Packet < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :photos, presence: true
-  # has_one_attached :video
+  validates :tools, presence: true
   before_save :render_url
   has_many :packet_ratings
   has_many :chatrooms
+
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_category,
