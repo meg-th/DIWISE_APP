@@ -3,14 +3,30 @@
   }
 
 .affixed-info {
-	position: sticky;
-	justify-content: center; 
-	align-content: center;
+  text-align: center;
+  margin: 50px;
 }
 
+.category-icon {
+  font-size: 5rem;
+}
+
+.packet-container {
+  height: 80vh;
+  overflow: scroll;
+}
 
 .cards {
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+}
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
