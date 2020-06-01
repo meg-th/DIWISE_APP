@@ -53,7 +53,7 @@ class PacketsController < ApplicationController
   private
 
   def packets_params
-    params.require(:packet).permit(:category_id, :title, :description, :youtube_url, photos: [])
+    params.require(:packet).permit(:tool_id, :category_id, :title, :description, :youtube_url, photos: [])
   end
 
 end

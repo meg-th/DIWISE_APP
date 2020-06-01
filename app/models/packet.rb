@@ -2,7 +2,6 @@ class Packet < ApplicationRecord
   before_save :render_url
   belongs_to :user
   belongs_to :category
-  belongs_to :tool
   has_many :packet_ratings
   has_many_attached :photos
 
