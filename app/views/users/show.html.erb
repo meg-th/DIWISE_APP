@@ -2,18 +2,18 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <div class="user-card hovercard">
-          <div class="cardheader">
+          <div class="cardheader" style="background: url(<%= image_path 'cover1.jpg'%>)">
           </div>
           <div class="avatar">
             <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar-bordered dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag @user.photo.key, class: "avatar-bordered dropdown-toggle ml-3", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
              <% end %>
             </div>
           <div class="info">
               <div class="title">
                 <h1>Hello, <%= @user.username %></h1>
               </div>
-              <div class="desc">Di-wiser <%= current_user.id %></div>
+              <div class="desc">Di-Wiser <%= @user.id %></div>
               <div class="desc">Curious developer</div>
               <div class="desc">Tech geek</div>
           </div>
@@ -27,27 +27,46 @@
 
       <div class="col-8">
         <% if @user.projects.empty? %>
-          <h2>You don’t have any projects yet!</h2>
+          <%= link_to new_project_path do %>
+            <h3> Add a new project! <i class="fas fa-tools"></i></h3>
+          <% end %>
         <% else %>
-          <h2>Your Projects</h2>
-          <div class="my-projects">
-
-  <!--           <#% if @project.packet.photos %>
-              <#% packet.photos.each do |photo| %>
-              <%#= cl_image_tag photo.key, crop: :fill %>
-            <%# end %> -->
-
-            <!-- # insert project packet photo -->
-            <div class="card-product-infos">
-              <% @user.projects.each do |project| %>
-                <h2><%= link_to project.title, project_path(project) %></h2>
-                <p>Project description with <strong>relevant info</strong> only.</p>
-              <% end %>
+            <h2>Your Projects</h2>
+            <div class="my-projects">
+              <!-- # insert project packet photo / giant button -->
+              <div class="card-product">
+                <div class="card-product-infos">
+                  <% @user.projects.each do |project| %>
+                    <h2><%= link_to project.title, project_path(project) %></h2>
+                    <p>Project description with <strong>relevant info</strong> only.</p>
+                  <% end %>
+                </div>
             </div>
           </div>
         <% end %>
       </div>
-      <a class= "mx-4"><%= link_to "Add a New Project", new_project_path, class: "btn btn-success diwise-btn" %></a>
+
+<!-- Display chatrooms -->
+      <% @user.chatroom_users.each do |chatroom_user| %>
+       <!-- Name of the chatroom / packet -->
+        <div class="notification">
+          <%= cl_image_tag chatroom_user.chatroom.packet.photos.first.key, width: 150, height: 100 %>
+          <div class="notification-content">
+            <p><small><%= chatroom_user.chatroom.created_at.strftime("%a %b %e at %l:%M%p") %></small></p>
+            <p>
+                <strong><%= chatroom_user.chatroom.packet.title %></strong> with <%= chatroom_user.chatroom.packet.user.username %>
+            </p>
+          </div>
+
+          <div class="notification-actions">
+            <%= link_to chatroom_path(chatroom_user.chatroom) do %>
+              Reply <i class="far fa-envelope-open"></i>
+            <% end %>
+            <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+          </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>

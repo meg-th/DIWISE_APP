@@ -11,6 +11,8 @@ class Packet < ApplicationRecord
   validates :photos, presence: true
   # has_one_attached :video
   before_save :render_url
+  has_many :packet_ratings
+  has_many :chatrooms
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_category,
