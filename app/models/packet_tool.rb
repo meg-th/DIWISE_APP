@@ -1,4 +1,4 @@
 class PacketTool < ApplicationRecord
-  belongs_to :packet
-  belongs_to :tool
+  belongs_to :packets
+  belongs_to :tools
 end

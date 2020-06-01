@@ -31,6 +31,7 @@ class PacketsController < ApplicationController
   def show
     @packet = Packet.find(params[:id])
     @project_packet = ProjectPacket.new
+    @packet_tool = PacketTool.new
 
     respond_to do |format|
       format.html
