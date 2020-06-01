@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_182148) do
+ActiveRecord::Schema.define(version: 2020_06_01_120003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,9 @@ ActiveRecord::Schema.define(version: 2020_05_28_182148) do
     t.string "youtube_url"
     t.bigint "category_id"
     t.string "video"
+    t.bigint "tool_id"
     t.index ["category_id"], name: "index_packets_on_category_id"
+    t.index ["tool_id"], name: "index_packets_on_tool_id"
     t.index ["user_id"], name: "index_packets_on_user_id"
   end
 
@@ -82,6 +84,15 @@ ActiveRecord::Schema.define(version: 2020_05_28_182148) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "tools", force: :cascade do |t|
+    t.string "name"
+    t.string "icon_image"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_tools_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -103,8 +114,10 @@ ActiveRecord::Schema.define(version: 2020_05_28_182148) do
   add_foreign_key "packet_ratings", "packets"
   add_foreign_key "packet_ratings", "users"
   add_foreign_key "packets", "categories"
+  add_foreign_key "packets", "tools"
   add_foreign_key "packets", "users"
   add_foreign_key "project_packets", "packets"
   add_foreign_key "project_packets", "projects"
   add_foreign_key "projects", "users"
+  add_foreign_key "tools", "categories"
 end
