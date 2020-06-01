@@ -4,6 +4,8 @@ class Packet < ApplicationRecord
   belongs_to :category
   has_many_attached :photos, dependent: :destroy
   has_many :packet_ratings, dependent: :destroy
+  has_many :packet_tools
+  has_many :tools, through: :packet_tools
 
   validates :category, presence: true
   validates :title, presence: true

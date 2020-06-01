@@ -22,6 +22,8 @@ class PacketsController < ApplicationController
   def create
     @packet = Packet.new(packets_params)
     @packet.user = current_user
+    @packet_tool = PacketTool.new
+
     if @packet.save
       if params[:packet][:video]
         uploaded_file = Cloudinary::Uploader.upload_large(params[:packet][:video].tempfile, :resource_type => :video)
@@ -60,7 +62,7 @@ class PacketsController < ApplicationController
   private
 
   def packets_params
-    params.require(:packet).permit(:tool_id, :category_id, :title, :description, :youtube_url, photos: [])
+    params.require(:packet).permit(:tool_ids, :category_id, :title, :description, :youtube_url, photos: [])
   end
 
 end
