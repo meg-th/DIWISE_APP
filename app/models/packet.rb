@@ -23,6 +23,5 @@ class Packet < ApplicationRecord
   def rating
     packet_ratings.count
   end
-
 end
 

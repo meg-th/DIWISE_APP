@@ -1,19 +1,19 @@
 <body data-spy="scroll" data-offset="0" data-target="#myScrollspy">
-  <div class="container category-container mx-1">
+  <div class="category-container mx-1 m-5">
     <div class="row">
-      <div class="col-sm-4" id="myScrollspy">
-        <div class="affixed-info">
-          <a href="#category-list">
-            <h1><%= @category.name%> <i class="<%= @category.font_awesome_icon %>"></i></h1>
-            <p><%= @category.description %></p>
-          </a>
+      <div class="col-12 col-lg-6">
+        <div class="affixed-info sticky-top">
+          <h1 class="mb-5"><%= @category.name%></h1>
+          <i class="<%= @category.font_awesome_icon %> category-icon"></i></h10>
+          <p class="mt-5"><%= @category.description %></p>
         </div>
       </div>
-      <div class="col-8" >
-        <div class=" d-flex container align-items-center ">
+
+      <div class="col-12 col-lg-6 packet-container" id="myScrollspy">
+        <div class=" d-flex align-items-center">
           <%= render "shared/packet_card" %>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
 </body>

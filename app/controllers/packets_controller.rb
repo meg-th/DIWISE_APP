@@ -2,11 +2,17 @@ require 'open-uri'
 
 class PacketsController < ApplicationController
   def index
-    if params[:query].present?
-      @packets = Packet.search_by_title_and_category(params[:query])
+    if params[:query].present? && params["popularity"] != "on"
+      @packets = Packet.search_by_title_and_category(params[:query]).sort_by{|packet| - packet.id}
+    elsif params["popularity"] == "on" && params[:query].present?
+      @packets = Packet.search_by_title_and_category(params[:query]).sort_by{|packet| - packet.rating}
+      # raise
+    elsif params["popularity"] == "on"
+      @packets = Packet.all.sort_by{|packet| - packet.rating}
     else
-      @packets = Packet.all.sort_by{|packet| -packet.rating}
+      @packets = Packet.all.sort_by{|packet| - packet.id}
     end
+    # raise
   end
 
   def new
@@ -23,7 +29,7 @@ class PacketsController < ApplicationController
       end
       redirect_to packets_path
     else
-      raise
+      # raise
       render :new
     end
   end
