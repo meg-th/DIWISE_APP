@@ -2,14 +2,17 @@ class Packet < ApplicationRecord
   before_save :render_url
   belongs_to :user
   belongs_to :category
-  has_many :packet_ratings
-  has_many_attached :photos
+  has_many_attached :photos, dependent: :destroy
+  has_many :packet_ratings, dependent: :destroy
 
   validates :category, presence: true
   validates :title, presence: true
   validates :description, presence: true
   validates :photos, presence: true
   validates :tools, presence: true
+  before_save :render_url
+  has_many :packet_ratings
+  has_many :chatrooms
 
 
   include PgSearch::Model
@@ -24,6 +27,5 @@ class Packet < ApplicationRecord
   def rating
     packet_ratings.count
   end
-
 end
 

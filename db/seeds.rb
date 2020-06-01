@@ -91,4 +91,3 @@ Tool.create(name: 'Sugar', category_id: 11)
 
 Tool.create(name: 'Hammer', category_id: 12)
 
-

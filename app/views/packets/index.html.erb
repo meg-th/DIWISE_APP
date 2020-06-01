@@ -1,5 +1,22 @@
 <div class= "container my-5">
-  <h1 class= "border-bottom border-dark mb-5" width=50%= >All DIY Lessons</h1>
+  <div class="d-flex justify-content-between">
+    <% if params[:query].present? %>
+      <h1 class= "border-bottom border-dark mb-5" width=50%= >Results for: <%= params[:query] %></h1>
+    <% else %>
+      <h1 class= "border-bottom border-dark mb-5" width=50%= >All DIY Lessons</h1>
+    <% end %>
+      <form>
+        <label for="">sort by popularity</label>
+        <% if params["popularity"] == "on" %>
+          <input type="checkbox" name="popularity" id="filter" checked>
+        <% else %>
+          <input type="checkbox" name="popularity" id="filter">
+        <% end %>
+        <input type="hidden" name="query" value="<%= params[:query] %>">
+        <input class="d-none" type="submit" id="submit">
+      </form> 
+    </div>
+  </div>
   <div class="container margin-1">
     <%= render "shared/packet_card" %>
   </div>

@@ -1,7 +1,8 @@
 <div class="cards">
   <% @packets.each do |packet| %>
     <div class="card diwise-card">
-      <div class=" d-flex container container-rating align-items-center " id="packet-<%= packet.id %>"><%= packet.rating %>
+      <div class=" d-flex container container-rating align-items-center justify-content-around" id="packet-<%= packet.id %>">
+        <%= packet.rating %>
         <% if packet.packet_ratings.where(user: current_user).empty? %>
           <%= link_to packet_packet_ratings_path(packet), method: :post, remote: true do %>
             <span style="font-size: 2rem;">
