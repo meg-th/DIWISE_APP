@@ -1,11 +1,14 @@
 class Packet < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  
+  has_many_attached :photos, dependent: :destroy
+  has_many :packet_ratings, dependent: :destroy
+
   validates :category, presence: true
   validates :title, presence: true
   validates :description, presence: true
   validates :photos, presence: true
-  has_many_attached :photos
   # has_one_attached :video
   before_save :render_url
   has_many :packet_ratings
