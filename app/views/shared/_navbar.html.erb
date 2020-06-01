@@ -1,15 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-dark navbar-diwise" style="background-color:#212121;" >
+<div class="navbar navbar-expand-sm navbar-dark navbar-diwise" style="background-color:#000000;" >
   <!-- Logo -->
   <div class= "d-flex">
     <%= link_to root_path, class: "navbar-brand" do %>
-      DI-WISE
+      <strong>DI-WISE</strong>
   <% end %>
 
   <!-- Search Form DON'T TOUCH - PAWS OFF 🐾 -->
   <div class="filter-form">
     <%= form_tag packets_path, class: 'form-inline', method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Browse" %>
-      <%= submit_tag "Search", class: "btn btn-success"%>
+      <%= text_field_tag :query, params[:query], class: "form-control form-diwise", placeholder: "Browse" %>
+      <%= submit_tag "Search", class: "btn btn-success diwise-btn"%>
     <% end %>
     </div>
   </div>
@@ -31,6 +31,7 @@
   <!-- All -->
       <li class="nav-item active mx-3">
         <%= link_to "All DIY Uploads", packets_path, class: "top-nav" %>
+        <%= link_to "All DIY Lessons", packets_path, class: "nav-link" %>
       </li>
 
   <!-- User Dropdown -->

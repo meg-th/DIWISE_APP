@@ -1,13 +1,19 @@
-<div class="container">
-  <div class="d-flex justify-content-space-between">
-    <div>
-        <h1><%= @category.name%> <i class="<%= @category.font_awesome_icon %>"></i></h1>
-        <p><%= @category.description %></p>
-      <div>
-      	<% @packets.each do |packet|%>
-      	  <%= render "shared/packet_card" %>
-      	<% end %>
+<body data-spy="scroll" data-offset="0" data-target="#myScrollspy">
+  <div class="container category-container mx-1">
+    <div class="row">
+      <div class="col-sm-4" id="myScrollspy">
+        <div class="affixed-info">
+          <a href="#category-list">
+            <h1><%= @category.name%> <i class="<%= @category.font_awesome_icon %>"></i></h1>
+            <p><%= @category.description %></p>
+          </a>
+        </div>
       </div>
-    </div>
+      <div class="col-8" >
+        <div class=" d-flex container align-items-center ">
+          <%= render "shared/packet_card" %>
+        </div>
+      </div>
+    </div>    
   </div>
-</div>
+</body>
