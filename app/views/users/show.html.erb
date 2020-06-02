@@ -62,7 +62,9 @@
               <%= link_to chatroom_path(chatroom) do %>
                 Reply <i class="far fa-envelope-open"></i>
               <% end %>
-              <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+              <%= link_to chatroom_path(chatroom), data: { confirm: "Are you sure?" }, method: :delete do %>
+                Delete<i class="far fa-trash-alt"></i>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -85,7 +87,7 @@
             <%= link_to chatroom_path(chatroom) do %>
               Reply <i class="far fa-envelope-open"></i>
             <% end %>
-            <%= link_to 'Delete', user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete do %>
+            <%= link_to chatroom_path(chatroom), data: { confirm: "Are you sure?" }, method: :delete do %>
               Delete<i class="far fa-trash-alt"></i>
             <% end %>
           </div>
