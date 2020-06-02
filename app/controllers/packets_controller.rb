@@ -23,20 +23,19 @@ class PacketsController < ApplicationController
     @packet = Packet.new(packets_params)
     @packet.user = current_user
     if @packet.save
-      
+
       if params[:packet][:packet_tools]
         tools_ids = params[:packet][:packet_tools].reject{|id| id == ""}
         tools_ids.each do |id|
           PacketTool.create(tool_id: id , packet: @packet)
-        end 
-      end 
+        end
+      end
       if params[:packet][:video]
         uploaded_file = Cloudinary::Uploader.upload_large(params[:packet][:video].tempfile, :resource_type => :video)
         @packet.update!(video: uploaded_file['secure_url'])
       end
       redirect_to packets_path
     else
-      raise
       render :new
     end
   end
