@@ -1,6 +1,7 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-12">
     <div class="card p-3">
+
       <div>
         <h1><strong><%= @packet.title %></strong></h1>
         <p><%= @packet.description %></p>
@@ -81,7 +82,11 @@
 
 <!-- Tools tab-->
         <div class="tab-pane fade text-center" id="nav-tools" role="tabpanel" aria-labelledby="nav-tools-tab">
-          Get yo'self a hammer girl
+          <ul>
+            <% @packet.tools.each do |tool| %>
+            <li><%= tool.name %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
 
