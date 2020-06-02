@@ -3,9 +3,6 @@
     <div class="card p-3">
       <h1><strong><%= @packet.title %></strong></h1>
       <p>Summary: <%= @packet.description %></p>
-        <% @packet.tools.each do |tool| %>
-        <%= tool.name %>
-        <% end %>
       <!-- <%#= link_to Ask a question, chatroom_create_path, method post %> -->
       <!-- @packet.user_id -->
       <% if @packet.user.photo.attached? %>
@@ -81,7 +78,11 @@
 
 <!-- Tools tab-->
         <div class="tab-pane fade text-center" id="nav-tools" role="tabpanel" aria-labelledby="nav-tools-tab">
-          Get yo'self a hammer girl
+          <ul>
+            <% @packet.tools.each do |tool| %>
+            <li><%= tool.name %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
 
