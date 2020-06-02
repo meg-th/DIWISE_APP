@@ -21,10 +21,10 @@ require("chatroom")
 // External imports
 import "bootstrap";
 import "controllers";
-import { initSelect2 } from '../plugins/init_select2';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initSelect2 } from '../plugins/init_select2';
 import { filter_by } from '../components/filter_by';
 
 document.addEventListener('turbolinks:load', () => {
