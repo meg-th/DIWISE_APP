@@ -15,6 +15,17 @@ class PacketsController < ApplicationController
     # raise
   end
 
+   def show
+    @packet = Packet.find(params[:id])
+    @project_packet = ProjectPacket.new
+    @packet_tool = PacketTool.new
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { packet: @packet } }
+    end
+  end
+
   def new
     @packet = Packet.new
   end
@@ -41,15 +52,11 @@ class PacketsController < ApplicationController
   end
 
 
-  def show
-    @packet = Packet.find(params[:id])
-    @project_packet = ProjectPacket.new
-    @packet_tool = PacketTool.new
 
-    respond_to do |format|
-      format.html
-      format.json { render json: { packet: @packet } }
-    end
+  private
+
+  def packets_params
+    params.require(:packet).permit(:category_id, :title, :description, :youtube_url, photos: [])
   end
 
   def add_vote
@@ -61,13 +68,6 @@ class PacketsController < ApplicationController
         format.js
       end
     end
-
-  end
-
-  private
-
-  def packets_params
-    params.require(:packet).permit(:category_id, :title, :description, :youtube_url, photos: [])
   end
 
 end
