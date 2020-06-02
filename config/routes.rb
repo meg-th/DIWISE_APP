@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     resources :packet_tools, only: [:create]
     resources :chatrooms, only: [:create]
   end
+  resources :chatrooms, only: [:show, :destroy] do
+    resources :messages, only: [:create]
+  end
 
   resources :users, only: [:show]
   resources :projects, only: [:new, :create, :show]
   resources :categories, only: [:show]
-  resources :chatrooms, only: [:show] do
-    resources :messages, only: [:create]
-  end
 
 end
