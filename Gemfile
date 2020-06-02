@@ -19,8 +19,6 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary', '~> 1.12.0'
-gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
-
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

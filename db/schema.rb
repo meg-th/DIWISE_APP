@@ -81,12 +81,12 @@ ActiveRecord::Schema.define(version: 2020_06_01_173305) do
   end
 
   create_table "packet_tools", force: :cascade do |t|
-    t.bigint "packets_id", null: false
-    t.bigint "tools_id", null: false
+    t.bigint "packet_id", null: false
+    t.bigint "tool_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["packets_id"], name: "index_packet_tools_on_packets_id"
-    t.index ["tools_id"], name: "index_packet_tools_on_tools_id"
+    t.index ["packet_id"], name: "index_packet_tools_on_packet_id"
+    t.index ["tool_id"], name: "index_packet_tools_on_tool_id"
   end
 
   create_table "packets", force: :cascade do |t|
@@ -152,8 +152,8 @@ ActiveRecord::Schema.define(version: 2020_06_01_173305) do
   add_foreign_key "messages", "users"
   add_foreign_key "packet_ratings", "packets"
   add_foreign_key "packet_ratings", "users"
-  add_foreign_key "packet_tools", "packets", column: "packets_id"
-  add_foreign_key "packet_tools", "tools", column: "tools_id"
+  add_foreign_key "packet_tools", "packets"
+  add_foreign_key "packet_tools", "tools"
   add_foreign_key "packets", "categories"
   add_foreign_key "packets", "users"
   add_foreign_key "project_packets", "packets"
