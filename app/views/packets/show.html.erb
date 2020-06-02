@@ -1,16 +1,20 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-12">
     <div class="card p-3">
-      <h1><strong><%= @packet.title %></strong></h1>
-      <p>Summary: <%= @packet.description %></p>
-      <!-- <%#= link_to Ask a question, chatroom_create_path, method post %> -->
-      <!-- @packet.user_id -->
-      <% if @packet.user.photo.attached? %>
+
+      <div>
+        <h1><strong><%= @packet.title %></strong></h1>
+        <p><%= @packet.description %></p>
+        <% @packet.tools.each do |tool| %>
+          <%= tool.name %>
+        <% end %>        
+        <% if @packet.user.photo.attached? %>
           <%= cl_image_tag @packet.user.photo.key, class: "avatar-bordered dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-        <div class="dropdown-menu dropdown-menu-right diwise-dropdown" aria-labelledby="navbarDropdown">
-          <%= link_to "See profile", user_path(@packet.user_id), class: "dropdown-item" %>
-          <%= link_to "Start a conversation", packet_chatrooms_path(@packet), method: :post, class: "dropdown-item" %>
+            <div class="dropdown-menu dropdown-menu-left diwise-dropdown" aria-labelledby="navbarDropdown">
+              <%= link_to "See profile", user_path(@packet.user_id), class: "dropdown-item" %>
+              <%= link_to "Start a conversation", packet_chatrooms_path(@packet), method: :post, class: "dropdown-item" %>
+            </div>
+          <% end %>
         </div>
 
       <nav>
