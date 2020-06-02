@@ -12,4 +12,10 @@ class ChatroomsController < ApplicationController
     ChatroomUser.create(chatroom: @chatroom, user: @packet.user)
     redirect_to @chatroom
   end
+
+  def destroy
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.destroy
+    redirect_to user_path(current_user)
+  end
 end

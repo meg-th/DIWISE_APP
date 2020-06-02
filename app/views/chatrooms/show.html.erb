@@ -8,7 +8,6 @@
         <div class="title">Let's talk about: <em><%= @chatroom.name %></em></div>
     </div>
     <ul class="messages">
-<!-- Original content start -->
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
         <% @chatroom.messages.each do |message| %>
           <div class="message-container" id="message-<%= message.id %>">
@@ -20,7 +19,6 @@
           </div>
         <% end %>
       </div>
-      <!-- Original content end -->
     </ul>
     <div class="bottom_wrapper clearfix">
       <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
@@ -28,19 +26,8 @@
           <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}", input_html: { class: 'message_input' } %>
         </div>
           <%= f.button :submit, "Send", class: "send_message" %>
-<!--         <div class="send_message">
-            <div class="text">Send</div>
-        </div> -->
       <% end %>
     </div>
-</div>
-<div class="message_template">
-    <li class="message">
-        <div class="avatar"></div>
-        <div class="text_wrapper">
-            <div class="text"></div>
-        </div>
-    </li>
 </div>
 
 
