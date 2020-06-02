@@ -7,7 +7,7 @@
         <p><%= @packet.description %></p>
         <% @packet.tools.each do |tool| %>
           <%= tool.name %>
-        <% end %>        
+        <% end %>
         <% if @packet.user.photo.attached? %>
           <%= cl_image_tag @packet.user.photo.key, class: "avatar-bordered dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-left diwise-dropdown" aria-labelledby="navbarDropdown">
