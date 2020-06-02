@@ -16,7 +16,9 @@
        
       </div>
       <div class="container grid p-5">
-        <%= render 'shared/packet_card', packets: @packets %>
+        <div class="project-cards">
+          <%= render 'shared/packet_card', packets: @packets %>
+        </div>
       </div>
     <% end %>
   </div>
