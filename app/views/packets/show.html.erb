@@ -1,20 +1,25 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-12">
-    <div class="card p-3">
-      <div>
-        <h1><strong><%= @packet.title %></strong></h1>
-        <p><%= @packet.description %></p>
-        <% @packet.tools.each do |tool| %>
-          <%= tool.name %>
-        <% end %>        
-        <% if @packet.user.photo.attached? %>
-          <%= cl_image_tag @packet.user.photo.key, class: "avatar-bordered dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <div class="card m-5 p-5">
+      <div class="container d-flex justify-content-between mb-3">
+        <div class="">
+          <h1 class=""><strong><%= @packet.title %></strong></h1>
+          <p><%= @packet.description %></p>
+          <% @packet.tools.each do |tool| %>
+            <%= tool.name %>
+          <% end %>
+        </div>
+
+        <div class="">
+          <% if @packet.user.photo.attached? %>
+            <%= cl_image_tag @packet.user.photo.key, class: "avatar-large dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-left diwise-dropdown" aria-labelledby="navbarDropdown">
               <%= link_to "See profile", user_path(@packet.user_id), class: "dropdown-item" %>
               <%= link_to "Start a conversation", packet_chatrooms_path(@packet), method: :post, class: "dropdown-item" %>
             </div>
           <% end %>
         </div>
+      </div>
 
       <nav>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
