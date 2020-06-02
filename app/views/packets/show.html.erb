@@ -3,7 +3,9 @@
     <div class="card p-3">
       <h1><strong><%= @packet.title %></strong></h1>
       <p>Summary: <%= @packet.description %></p>
-
+        <% @packet.tools.each do |tool| %>
+        <%= tool.name %>
+        <% end %>
       <!-- <%#= link_to Ask a question, chatroom_create_path, method post %> -->
       <!-- @packet.user_id -->
       <% if @packet.user.photo.attached? %>
