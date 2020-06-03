@@ -1,25 +1,29 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-8">
     <div class="card p-3">
+      <div class="card-body">
       <div id="form-title">
         <div class="text-center">
           Share Your DI-WISdom
         </div>
       </div>
-
-      <%= simple_form_for @packet do |f| %>
-        <%= f.input :title, label: '1) Title', placeholder: 'Elegant Coffee Table' %>
-        <%= f.association :category, label: '2) Select category' %>
-        <%= f.input :packet_tools, input_html: {class: "select2 w-100",  multiple: true },  collection: Tool.all, label: '3) Select packet tools' %>
-        <%= f.input :description, label: '4) Any tips and tricks to share?', input_html: { maxlength: 500, size: 500 }, placeholder: '' %>
-        <%= f.input :photos, as: :file, input_html: { class: "upload-button", multiple: true }, label: '5) Select photos' %>
-        <%= f.input :video, as: :file, label: '6) Select a video', input_html: { class: "upload-button" } %>
-        <%= f.input :youtube_url, label: '7) Or paste a Youtube URL', input_html: { maxlength: 500, size: 500}, placeholder: 'https://www.youtube...' %>
-        <div class="button_cont" align="center">
-          <%= f.button :submit, class: "example_e" %>
-        </div>
-        <%= link_to "Back", root_path, class: "back-button" %>
-      <% end %>
+        <%= simple_form_for @packet do |f| %>
+        <div class="form-inputs">
+          <%= f.input :title, label: '1) Title', placeholder: 'Elegant Coffee Table' %>
+          <%= f.association :category, label: '2) Select category' %>
+          <%= f.input :packet_tools, input_html: {class: "select2 w-100",  multiple: true },  collection: Tool.all, label: '3) Select packet tools' %>
+          <%= f.input :description, label: '4) Any tips and tricks to share?', input_html: { maxlength: 500, size: 500 }, placeholder: '' %>
+          <%= f.input :photos, as: :file, input_html: { class: "upload-button", multiple: true }, label: '5) Select photos' %>
+          <%= f.input :video, as: :file, label: '6) Select a video', input_html: { class: "upload-button" } %>
+          <%= f.input :youtube_url, label: '7) Or paste a Youtube URL', input_html: { maxlength: 500, size: 500}, placeholder: 'https://www.youtube...' %>
+          </div>
+          <div class="button_cont" align="center">
+            <%= f.button :submit, class: "example_e" %>
+          </div>
+          <%= link_to "Back", root_path, class: "back-button" %>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>
 
