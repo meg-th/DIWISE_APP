@@ -1,22 +1,34 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-12">
-    <div class="card p-3">
-
-      <div>
-        <h1><strong><%= @packet.title %></strong></h1>
-        <p><%= @packet.description %></p>
-        <% @packet.tools.each do |tool| %>
-          <%= tool.name %>
-        <% end %>
-        <% if @packet.user.photo.attached? %>
-          <%= cl_image_tag @packet.user.photo.key, class: "avatar-bordered dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <div class="card m-5 p-5">
+      <div class="container d-flex justify-content-between mb-3">
+        <div class="">
+          <h1 class=""><strong><%= @packet.title %></strong></h1>
+          <p><%= @packet.description %></p>
+          <% @packet.tools.each do |tool| %>
+            <%= tool.name %>
+          <% end %>
+        </div>
+        <div class="">
+          <%= @packet.rating %>
+          <% if @packet.packet_ratings.where(user: current_user).empty? %>
+            <%= link_to packet_packet_ratings_path(@packet), method: :post, remote: true do %>
+              <span style="font-size: 2rem;">
+                <span style="color: #6dde89;">
+                  <i class=" icon fas fa-heart"></i>
+                </span>
+              </span>
+            <% end %>
+          <% end %>
+          <% if @packet.user.photo.attached? %>
+            <%= cl_image_tag @packet.user.photo.key, class: "avatar-large dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-left diwise-dropdown" aria-labelledby="navbarDropdown">
               <%= link_to "See profile", user_path(@packet.user_id), class: "dropdown-item" %>
               <%= link_to "Start a conversation", packet_chatrooms_path(@packet), method: :post, class: "dropdown-item" %>
             </div>
           <% end %>
         </div>
-
+      </div>
       <nav>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Photos</a>
@@ -25,9 +37,8 @@
           <a class="nav-item nav-link" id="nav-tools-tab" data-toggle="tab" href="#nav-tools" role="tab" aria-controls="nav-tools" aria-selected="false">Tools</a>
         </div>
       </nav>
-
-<!-- Photos tab with carousel -->
       <div class="tab-content" id="nav-tabContent">
+        <!-- Photos tab with carousel -->
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           <% if @packet.photos %>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -39,7 +50,7 @@
               <div class="carousel-inner">
                 <% @packet.photos.each_with_index do |photo, index| %>
                   <div class="carousel-item <%= 'active' if index == 0 %>">
-                    <%= cl_image_tag photo.key, class: "carousel-image d-block w-100", crop: :fill %>
+                    <%= cl_image_tag photo.key, class: "carousel-image d-block", crop: :fill %>
                   </div>
                 <% end %>
               </div>
@@ -54,33 +65,30 @@
             </div>
           <% end %>
         </div>
-
-<!-- Videos tab with upload options -->
-        <div class="tab-pane fade d-flex justify-content-center" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <!-- Videos tab with upload options -->
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           <% if !@packet.youtube_url.empty? && @packet.video %>
             <div>
-              <iframe width='200px' height='200px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder=""></iframe>
+              <iframe width='820px' height='500px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder=""></iframe>
             </div>
             <div>
               <%= video_tag @packet.video, controls: true, crop: :fill %>
             </div>
           <% elsif !@packet.youtube_url.empty? %>
-            <iframe width='560px' height='340px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder=""></iframe>
+            <iframe width='820px' height='500px' src="http://www.youtube.com/embed/<%= @packet.youtube_url %>", frameborder=""></iframe>
           <% elsif @packet.video %>
-            <%= video_tag @packet.video, controls: true, crop: :fill %>
+            <%= video_tag @packet.video, controls: true, crop: :fill, class: "w-100" %>
           <% else %>
             <%= simple_form_for @packet do |f| %>
               <%= f.input :youtube_url, label: 'Add a Youtube URL', input_html: { maxlength: 500, size: 500} %>
             <% end %>
           <% end %>
         </div>
-
-<!-- Tips tab -->
+        <!-- Tips tab -->
         <div class="tab-pane fade text-center" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
           Use your brain
         </div>
-
-<!-- Tools tab-->
+        <!-- Tools tab-->
         <div class="tab-pane fade text-center" id="nav-tools" role="tabpanel" aria-labelledby="nav-tools-tab">
           <ul>
             <% @packet.tools.each do |tool| %>
@@ -89,7 +97,6 @@
           </ul>
         </div>
       </div>
-
       <%= simple_form_for [@packet, @project_packet] do |f| %>
         <%= f.input :project, label: 'Do you want to add this to a project?', collection: current_user.projects %>
         <div class="d-flex justify-content-between">
@@ -97,11 +104,6 @@
           <%= link_to "Back", packets_path, class: "btn btn-warning" %>
         </div>
       <% end %>
-      </div>
-
     </div>
   </div>
 </div>
-
-
-
