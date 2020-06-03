@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   helper_method :display_project_tools
+  before_action :project_find, only: [:show, :destroy]
   
   def new
     @project = Project.new
@@ -16,12 +17,22 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
     @packets = @project.packets
     @display_tools = display_project_tools
   end
 
+  def destroy
+    @project.destroy
+    redirect_to user_path(current_user)
+  end
+  
+
   private
+
+  def project_find
+    @project = Project.find(params[:id])
+  end
+  
 
   def project_params
     params.require(:project).permit(:title)
