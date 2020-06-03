@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-dark navbar-diwise" style="background-color:#000000;" >
+<div class="navbar navbar-expand-sm navbar-dark navbar-diwise" style="background-color:#202C31;" >
   <!-- Logo -->
   <div class= "d-flex">
     <%= link_to root_path, class: "navbar-brand" do %>
@@ -9,7 +9,7 @@
   <div class="filter-form">
     <%= form_tag packets_path, class: 'form-inline', method: :get do %>
       <%= text_field_tag :query, params[:query], class: "form-control form-diwise", placeholder: "Browse" %>
-      <%= submit_tag "Search", class: "btn btn-success diwise-btn"%>
+      <%= button_tag "Search", class: "btn btn-success diwise-btn" do %><i class="fa fa-search"></i><% end %>
     <% end %>
     </div>
   </div>
