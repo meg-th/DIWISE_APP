@@ -26,12 +26,14 @@ import "controllers";
 // import { initSelect2 } from '../components/init_select2';
 import { initSelect2 } from '../plugins/init_select2';
 import { filter_by } from '../components/filter_by';
+import { previewImageOnFileSelect } from '../components/photo_preview';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   filter_by();
   initSelect2();
+  previewImageOnFileSelect();
 });
 
 import "controllers"

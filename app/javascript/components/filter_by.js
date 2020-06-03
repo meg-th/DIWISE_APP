@@ -1,4 +1,3 @@
-
 const filter_by = () => {
   const element = document.getElementById('filter')
   
