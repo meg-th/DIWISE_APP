@@ -6,7 +6,11 @@ class PacketRatingsController < ApplicationController
     @rating.user = current_user
     @rating.packet = @packet
     if @rating.save
-      redirect_to packets_path(anchor: "packet-#{@packet.id}")
+      if params[:show]
+        redirect_to packet_path(@packet)
+      else
+        redirect_to packets_path(anchor: "packet-#{@packet.id}")
+      end
     else
       render "packet/index"
     end
