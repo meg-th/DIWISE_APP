@@ -25,7 +25,7 @@ class PacketsController < ApplicationController
       if params[:packet][:packet_tools]
         tools_ids = params[:packet][:packet_tools].reject{|id| id == ""}
         tools_ids.each do |id|
-          PacketTool.create(tool_id: :id, packet: @packet)
+          PacketTool.create(tool_id: id, packet: @packet)
         end
       end
       if params[:packet][:video]
