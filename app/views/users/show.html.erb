@@ -1,4 +1,4 @@
-<div class="container">
+<div class="m-5">
   <div class="row justify-content-center">
     <div class="col-12">
       <div class="user-card hovercard">
@@ -33,8 +33,8 @@
           </div>
         <% else %>
          <!-- Top content -->
-        <div class="row p-3">
-          <p class="montserrat mr-3">Your projects</p>
+        <div class="row p-3 align-items-center">
+          <h2 class="montserrat mr-3">Your projects</h2>
           <%= link_to new_project_path do %>
             <i class="fas fa-plus"></i>
           <% end %>
@@ -52,26 +52,38 @@
                   </a>
                 </div>
                 <div id="carousel-example" class="carousel slide row" data-ride="carousel">
-                  <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                  <div class="carousel-inner pl-5 pr-5 row w-100 mx-auto" role="listbox">
                     <% projects = current_user.projects %>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                      <div class="card mb-2">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (38).jpg"
-                          alt="Card image cap">
+                    <div class="carousel-item col-12 col-sm-6 col-md-4 mt-5 col-lg-3 active">
+                      <div class="card shadow">
+                       <!-- <img class="card-img-top" src="/assets/<%= @sample_image.sample %>.jpg" alt="Card image cap"> --> 
+                       <div class="background-image-card" style="background-image: url('/assets/<%= @sample_image.sample %>.jpg');">
+                        <p class="card-title font-weight-bold"><%= projects.first.title.capitalize %></p>
+                       </div>
                         <div class="card-body">
-                          <h4 class="card-title font-weight-bold"><%= projects.first.title %></h4>
-                          <a class="btn btn-primary btn-md btn-rounded">Button</a>
+                          <!-- <h4 class="card-title font-weight-bold"><%= projects.first.title.capitalize %></h4> -->
+                          <div class="d-flex pt-3 pb-3 justify-content-between align-items-center">
+                            <a class="btn btn-primary btn-md btn-rounded btn-open-card">Open</a>
+                            <%= link_to project_path(projects.first), data: { confirm: "Are you sure?" }, method: :delete do %>
+                              <i class="fas fa-trash-alt"></i>
+                            <% end %>
+                          </div>
                         </div>
                       </div>
                     </div>
                     <% projects.drop(1).each do |project| %>
-                      <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card mb-2">
-                          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (38).jpg"
-                            alt="Card image cap">
+                      <div class="carousel-item col-12 col-sm-6 col-md-4 mt-5 col-lg-3">
+                        <div class="card shadow">
+                          <div class="background-image-card" style="background-image: url('/assets/<%= @sample_image.sample %>.jpg');">
+                            <p class="card-title font-weight-bold"><%= project.title.capitalize %></p>
+                          </div> 
                           <div class="card-body">
-                            <h4 class="card-title font-weight-bold"><%= project.title %></h4>
-                            <a class="btn btn-primary btn-md btn-rounded">Button</a>
+                            <div class="d-flex pt-3 pb-3 justify-content-between align-items-center">
+                              <a class="btn btn-primary btn-md btn-rounded btn-open-card">Open</a>
+                              <%= link_to project_path(project), data: { confirm: "Are you sure?" }, method: :delete do %>
+                                <i class="fas fa-trash-alt"></i>
+                              <% end %>
+                            </div>
                           </div>
                         </div>
                       </div>
