@@ -9,17 +9,10 @@
     </div>
   </div>
 </div>
-<!-- Trending projects -->
-<div class ="container mb-5">
-  <h3 class= "text-center p-2 mt-5 mb-4 border-bottom border-dark">Trending Projects</h3>
-  <div class="home-cards">
-  	<%= render 'shared/packet_card', packets: @packets %>
-  </div>
-</div>
 
 <!-- How it works -->
 <div class="banner-container">
-  <h2 class= "text-center p-2 mt-5 mb-4 border-bottom border-dark">How it works</h2>
+  <h2 class="text-center p-2 mt-5 mb-4 border-bottom border-dark">How it works</h2>
   <div>
     <div class="banner-cards">
       <div class="banner-card">
@@ -40,4 +33,13 @@
     </div>
     </div>
 </div>
+
+<!-- Trending projects -->
+<div class ="container mb-5">
+  <h3 class= "text-center p-2 mt-5 mb-4 border-bottom border-dark">Trending Projects</h3>
+  <div class="home-cards">
+  	<%= render 'shared/packet_card', packets: @packets %>
+  </div>
+</div>
+
 

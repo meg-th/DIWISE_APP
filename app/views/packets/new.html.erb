@@ -15,8 +15,9 @@
           <%= f.input :packet_tools, input_html: {class: "select2 w-100",  multiple: true },  collection: Tool.all, label: false %>
           <%= f.input :description, label: '4) Any tips and tricks to share?', input_html: { maxlength: 500, size: 500 }, placeholder: '' %>
           <div class="form-inline">
-          <%= f.input :photos, as: :file, input_html: { class: "hidden d-none", multiple: true }, label_html: { class: 'upload-photo'}, label: '5) 📷 Upload photos' %>
+          <%= f.input :photos, as: :file, input_html: { class: "hidden d-none", id:"photo-input", multiple: true }, label_html: { class: 'upload-photo'}, label: '5) 📷 Upload photos' %>
           <%= f.input :video, as: :file, input_html: { class: "hidden d-none" }, label_html: { class: 'upload-photo'}, label: '6) 🎬 Upload a video'  %>
+          <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
           </div>
           <%= f.input :youtube_url, label: '7) Or paste a Youtube URL', input_html: { maxlength: 500, size: 500}, placeholder: 'https://www.youtube...' %>
           </div>
