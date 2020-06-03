@@ -1,4 +1,3 @@
-
 <% @packets.each do |packet| %>
     <div class="card diwise-card">
       <%= link_to packet_path(packet) do %>
@@ -22,6 +21,15 @@
                </span>
              </span>
            <% end %>
+         <% end %>
+       </div>
+       <div class = "packet-avatar">
+         <% if packet.user.photo.attached? %>
+           <%= cl_image_tag packet.user.photo.key, class: "avatar-large dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+           <div class="dropdown-menu dropdown-menu-left diwise-dropdown" aria-labelledby="navbarDropdown">
+             <%= link_to "See profile", user_path( packet.user_id), class: "dropdown-item" %>
+             <%= link_to "Start a conversation", packet_chatrooms_path(packet), method: :post, class: "dropdown-item" %>
+           </div>
          <% end %>
        </div>
     </div>
