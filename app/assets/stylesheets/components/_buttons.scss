@@ -10,7 +10,42 @@
 #btn-github {
   background-color: #eaea3a;
 }
-
 .diwise-btn {
-	border-radius: 16px;
+	border-radius: 50px;
+}
+
+.fa {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.fa-wrench {
+  font-size: 24px;
+}
+
+.how-to-cards {
+  flex: 1;
+  padding: 0, 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.how-to-card {
+  width: 178px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgb(230,230,230);
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgb(230,230,230);
+  height: 200px;
+}
+
+.how-to-icon {
+  height: 90px;
+}
+
+.how-to-card p {
+  opacity: 0.5;
 }

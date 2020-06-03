@@ -1,7 +1,7 @@
 
 .example_e {
 border: none;
-background: #404040;
+background: #202c31;
 color: #ffffff !important;
 font-weight: 100;
 padding: 20px;
@@ -47,4 +47,19 @@ transition: all 0.3s ease 0s;
 #form-title {
   font-size: 24px;
   font-weight: bold;
+}
+
+.upload-photo {
+  border: 1px solid #d3d3d3;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
+}
+
+.form-inline {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 8px;
 }

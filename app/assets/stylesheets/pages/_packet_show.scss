@@ -7,8 +7,52 @@
 }
 
 .carousel-image {
- width: 100%;
- height: 500px;
- object-fit: cover;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
 
+#nav-contact {
+  width: 100%;
+  height: 500px;
+}
+
+#nav-tools {
+  width: 50%;
+  height: 500px;
+}
+
+.container-packet-show-rating {
+  background: black;
+  color: white;
+  width: 60px;
+  height:60px;
+  border:1px solid rgba(107, 107, 107, 0.1);
+  border-radius: 100%;
+  position: absolute;
+  right: 150px;
+  top: 40px;
+    .icon {
+      position:absolute;
+      right: 80px;
+      bottom: 10px;
+    }
+}
+
+.packet-show-avatar {
+  position: absolute;
+  top: 45px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 2px solid;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: top center;
+  
+  .no-avatar-icon {
+    position: relative;
+    bottom: 14px;
+  }
 }

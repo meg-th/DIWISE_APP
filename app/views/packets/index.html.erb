@@ -9,8 +9,8 @@
     <span style="font-family: Montserrat, sans-serif;">Sort by </span>
     <a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span style="color: #6dde89;">
-        <i class="fas fa-sort-down"></i> 
-      </span> 
+        <i class="fas fa-sort-down" id="sort-down"></i>
+      </span>
     </a>
     <div class="dropdown-menu dropdown-menu-right diwise-dropdown" aria-labelledby="navbarDropdown">
       <%= link_to "Popularity", packets_path(popularity: "true", query: params[:query]), class: "dropdown-item", style: "font-family: Montserrat, sans-serif;" %>

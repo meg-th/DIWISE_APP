@@ -1,6 +1,7 @@
 // Specific CSS for your home-page
 
 .banner {
+  height: 100vh;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
@@ -12,6 +13,11 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 64px;
   font-weight: bold;
+}
+
+.landing-text {
+  // min-height: calc(100vh - 62px);
+  margin-top: 150px;
 }
 
 .banner h3 {
@@ -38,5 +44,6 @@
     height: 250px;
     object-fit:cover;
     justify-content: center;
+    border-radius: 8px;
   }
 }
