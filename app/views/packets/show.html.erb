@@ -2,24 +2,27 @@
   <div class="col-12">
     <div class="card m-5 p-5">
       <div class="container d-flex justify-content-between mb-3">
-        <div class="">
-          <h1 class=""><strong><%= @packet.title %></strong></h1>
+        <div>
+          <div class="d-flex">
+            <h1 class="mr-3"><strong><%= @packet.title %> </strong></h1>
+            <%= @packet.rating %>
+            <% if @packet.packet_ratings.where(user: current_user).empty? %>
+              <%= link_to packet_packet_ratings_path(@packet,show: true), method: :post, remote: true do %>
+                <span style="font-size: 2rem;">
+                  <span style="color: #6dde89;">
+                    <i class=" icon fas fa-heart"></i>
+                  </span>
+                </span>
+              <% end %>
+            <% end %>
+          </div>
           <p><%= @packet.description %></p>
           <% @packet.tools.each do |tool| %>
             <%= tool.name %>
           <% end %>
         </div>
-        <div class="">
-          <%= @packet.rating %>
-          <% if @packet.packet_ratings.where(user: current_user).empty? %>
-            <%= link_to packet_packet_ratings_path(@packet,show: true), method: :post, remote: true do %>
-              <span style="font-size: 2rem;">
-                <span style="color: #6dde89;">
-                  <i class=" icon fas fa-heart"></i>
-                </span>
-              </span>
-            <% end %>
-          <% end %>
+
+        <div>
           <% if @packet.user.photo.attached? %>
             <%= cl_image_tag @packet.user.photo.key, class: "avatar-large dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-left diwise-dropdown" aria-labelledby="navbarDropdown">
@@ -29,6 +32,7 @@
           <% end %>
         </div>
       </div>
+
       <nav>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Photos</a>
@@ -37,6 +41,7 @@
           <a class="nav-item nav-link" id="nav-tools-tab" data-toggle="tab" href="#nav-tools" role="tab" aria-controls="nav-tools" aria-selected="false">Tools</a>
         </div>
       </nav>
+
       <div class="tab-content" id="nav-tabContent">
         <!-- Photos tab with carousel -->
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -65,6 +70,7 @@
             </div>
           <% end %>
         </div>
+
         <!-- Videos tab with upload options -->
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           <% if !@packet.youtube_url.empty? && @packet.video %>
@@ -99,6 +105,7 @@
           </ul>
         </div>
       </div>
+
       <%= simple_form_for [@packet, @project_packet] do |f| %>
         <%= f.input :project, label: 'Do you want to add this to a project?', collection: current_user.projects %>
         <div class="d-flex justify-content-between">
