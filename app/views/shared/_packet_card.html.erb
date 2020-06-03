@@ -11,7 +11,7 @@
     <h5 class="card-title px-3 my-3"><%= packet.title %></h5>
     <p class= "card-text px-3"><%= packet.category&.name %></p>
     <% end %>
-    <div class=" d-flex container container-rating align-items-center justify-content-around" id="packet-<%= packet.id %>">
+    <div class=" d-flex container container-rating align-items-center justify-content-center" id="packet-<%= packet.id %>">
        <%= packet.rating %>
        <% if packet.packet_ratings.where(user: current_user).empty? %>
          <%= link_to packet_packet_ratings_path(packet), method: :post, remote: true do %>
@@ -36,8 +36,8 @@
           </a>
         <% end %>
         <div class="dropdown-menu dropdown-menu-right diwise-dropdown" aria-labelledby="navbarDropdown">
-         <%= link_to "See profile", user_path( packet.user_id), class: "dropdown-item" %>
-         <%= link_to "Start a conversation", packet_chatrooms_path(packet), method: :post, class: "dropdown-item" %>
+         <%= link_to "See #{packet.user.username}'s profile", user_path( packet.user_id), class: "dropdown-item" %>
+         <%= link_to "Start a conversation with #{packet.user.username}", packet_chatrooms_path(packet), method: :post, class: "dropdown-item" %>
         </div>
      </div>
   </div>
