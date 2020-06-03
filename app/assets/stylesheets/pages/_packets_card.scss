@@ -6,34 +6,30 @@
   background: white;
   height:400px;
   font-size: 15px;
-
-    .open {
-      position: absolute;
-      left: 75.08%;
-      right: 5.25%;
-      bottom: 5.08%;
-      top: 80.19%;
-      height: 10%;
-    }
 }
 
+.packet-avatar {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+}
 
 .container-rating {
   background: black;
   color: white;
-  width: 50px;
-  height:50px;
+  width: 60px;
+  height:60px;
   border:1px solid rgba(107, 107, 107, 0.1);
   border-radius: 100%;
   position: absolute;
-  left: 75.08%;
-  right: 5.25%;
-  top: 5.08%;
-  bottom: 80.19%;
+  right: 25px;
+  bottom: 25px;
     .icon {
     	position:absolute;
-    	right: 130%;
-    	bottom:10%;
+    	right: 80px;
+      bottom: 10px;
     }
 }
 

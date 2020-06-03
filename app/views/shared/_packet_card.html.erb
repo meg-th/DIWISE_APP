@@ -1,26 +1,36 @@
 <% @packets.each do |packet| %>
-  <div class="card diwise-card">
-    <div class=" d-flex container container-rating align-items-center justify-content-around" id="packet-<%= packet.id %>">
-      <%= packet.rating %>
-      <% if packet.packet_ratings.where(user: current_user).empty? %>
-        <%= link_to packet_packet_ratings_path(packet), method: :post, remote: true do %>
-          <span style="font-size: 2rem;">
-            <span style="color: #6dde89;">
-              <i class=" icon fas fa-heart"></i>
-            </span>
-          </span>
+    <div class="card diwise-card">
+      <%= link_to packet_path(packet) do %>
+      <div class ="px-3 pt-3 mt-2">
+        <% if packet.youtube_url.present? %>
+          <iframe height='250px' class = "w-100 "src="http://www.youtube.com/embed/<%= packet.youtube_url %>"></iframe>
+        <% elsif packet.photos.any? %>
+          <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
         <% end %>
+      </div>
+      <h5 class="card-title px-3 my-2"><%= packet.title %></h5>
+      <p class= "card-text px-3"><%= packet.category&.name %></p>
       <% end %>
+      <div class=" d-flex container container-rating align-items-center justify-content-around" id="packet-<%= packet.id %>">
+         <%= packet.rating %>
+         <% if packet.packet_ratings.where(user: current_user).empty? %>
+           <%= link_to packet_packet_ratings_path(packet), method: :post, remote: true do %>
+             <span style="font-size: 2rem;">
+               <span style="color: #6dde89;">
+                 <i class=" icon fas fa-heart"></i>
+               </span>
+             </span>
+           <% end %>
+         <% end %>
+       </div>
+       <div class = "packet-avatar">
+         <% if packet.user.photo.attached? %>
+           <%= cl_image_tag packet.user.photo.key, class: "avatar-large dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+           <div class="dropdown-menu dropdown-menu-left diwise-dropdown" aria-labelledby="navbarDropdown">
+             <%= link_to "See profile", user_path( packet.user_id), class: "dropdown-item" %>
+             <%= link_to "Start a conversation", packet_chatrooms_path(packet), method: :post, class: "dropdown-item" %>
+           </div>
+         <% end %>
+       </div>
     </div>
-    <div class ="px-3 pt-3 mt-2">
-      <% if packet.youtube_url.present? %>
-        <iframe height='250px' class = "w-100 "src="http://www.youtube.com/embed/<%= packet.youtube_url %>"></iframe>
-      <% elsif packet.photos.any? %>
-        <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
-      <% end %>
-    </div>
-    <h5 class="card-title px-3 my-2"><%= packet.title %></h5>
-    <p class= "card-text px-3"><%= packet.category&.name %></p>
-    <span class="d-flex justify-content-end open"><%= link_to 'Open', packet_path(packet), class: "btn btn-success" %></span>
-  </div>
 <% end %>
