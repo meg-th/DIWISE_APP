@@ -37,7 +37,7 @@
         <% end %>
         <div class="dropdown-menu dropdown-menu-right diwise-dropdown" aria-labelledby="navbarDropdown">
          <%= link_to "See #{packet.user.username}'s profile", user_path( packet.user_id), class: "dropdown-item" %>
-         <%= link_to "Start a conversation with #{packet.user.username}", packet_chatrooms_path(packet), method: :post, class: "dropdown-item" %>
+         <%= link_to "Start a conversation with #{packet.user.username}", packet_chatrooms_path(packet), method: :post, class: "dropdown-item", remote: true %>
         </div>
      </div>
   </div>
