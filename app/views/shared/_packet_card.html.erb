@@ -21,9 +21,6 @@
     </div>
     <h5 class="card-title px-3 my-2"><%= packet.title %></h5>
     <p class= "card-text px-3"><%= packet.category&.name %></p>
-
-    <%= render :partial => "show", :locals => { :packet => packet}  %>
-    <a href= "#myModal" role="button" data-toggle="modal"></a>
     <span class="d-flex justify-content-end open"><%= link_to 'Open', packet_path(packet), class: "btn btn-success" %></span>
   </div>
 <% end %>
