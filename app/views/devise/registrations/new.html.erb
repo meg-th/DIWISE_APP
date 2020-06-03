@@ -33,7 +33,8 @@
                           required: true,
                           input_html: { autocomplete: "new-password" } %>
               <div class="text-center">
-                <%= f.input :photos, as: :file, input_html: { class: "hidden d-none" }, label_html: { class: 'upload-photo'}, label: '📷 Upload profile photo' %>
+                <%= f.input :photo, as: :file, input_html: { class: "hidden d-none", id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload profile photo' %> 
+                <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
               </div>
            </div>
 
