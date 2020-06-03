@@ -1,15 +1,25 @@
 <div class="container">
   <div class="row justify-content-center mt-5">
     <% if @packets.empty? %>
-      <h2 >You haven't added any packets yet!</h2>
+        <h2 >You haven't added any packets yet!</h2>
     <% else %>
-    <div>
-      <h3><strong><%= @project.title %></strong></h3>
-      <div class="border-bottom"></div>
-    </div>
-    <div class="container grid p-5">
-      <%= render 'shared/packet_card', packets: @packets %>
-    </div>
+      <div>
+        <h3><strong><%= @project.title %></strong></h3>
+        <div class="border-bottom"></div>
+      </div>
+      <div class="container">
+        <ul>
+          <% @display_tools.each do |tool| %>
+            <li><%= tool.name %></li>
+          <% end %>
+        </ul>
+       
+      </div>
+      <div class="container grid p-5">
+        <div class="project-cards">
+          <%= render 'shared/packet_card', packets: @packets %>
+        </div>
+      </div>
     <% end %>
   </div>
 
@@ -20,3 +30,4 @@
 
   </div>
 </div>
+

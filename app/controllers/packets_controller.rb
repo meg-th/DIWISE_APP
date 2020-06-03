@@ -2,17 +2,15 @@ require 'open-uri'
 
 class PacketsController < ApplicationController
   def index
-    if params[:query].present? && params["popularity"] != "on"
-      @packets = Packet.search_by_title_and_category(params[:query]).sort_by{|packet| - packet.id}
-    elsif params["popularity"] == "on" && params[:query].present?
-      @packets = Packet.search_by_title_and_category(params[:query]).sort_by{|packet| - packet.rating}
-      # raise
-    elsif params["popularity"] == "on"
-      @packets = Packet.all.sort_by{|packet| - packet.rating}
+    if params[:query].present? && params[:popularity] != "true"
+      @packets = Packet.search_by_title_and_category(params[:query]).sort_by{|packet| packet.id}.reverse
+    elsif params[:popularity] == "true" && params[:query].present?
+      @packets = Packet.search_by_title_and_category(params[:query]).sort_by{|packet| packet.rating}.reverse
+    elsif params[:popularity] == "true"
+      @packets = Packet.all.sort_by{ |packet| packet.rating }.reverse
     else
-      @packets = Packet.all.sort_by{|packet| - packet.id}
+      @packets = Packet.all.sort_by{ |packet| packet.id }.reverse
     end
-    # raise
   end
 
   def new
@@ -27,7 +25,7 @@ class PacketsController < ApplicationController
       if params[:packet][:packet_tools]
         tools_ids = params[:packet][:packet_tools].reject{|id| id == ""}
         tools_ids.each do |id|
-          PacketTool.create(tool_id: id , packet: @packet)
+          PacketTool.create(tool_id: :id, packet: @packet)
         end
       end
       if params[:packet][:video]

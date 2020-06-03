@@ -27,10 +27,17 @@
   overflow: scroll;
 }
 
-.cards {
+.category-cards {
+  display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
+  .card-img-top {
+    height: 250px;
+    object-fit:cover;
+    justify-content: center;
+  }
 }
+
 
 ::-webkit-scrollbar {
   -webkit-appearance: none;

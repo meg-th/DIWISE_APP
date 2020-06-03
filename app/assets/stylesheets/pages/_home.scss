@@ -29,3 +29,14 @@
     height: 315px;
   }
 }
+
+.home-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  .card-img-top {
+    height: 250px;
+    object-fit:cover;
+    justify-content: center;
+  }
+}
