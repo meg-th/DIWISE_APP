@@ -50,7 +50,14 @@ class PacketsController < ApplicationController
     end
   end
 
-  def add_vote
+
+  private
+
+  def packets_params
+    params.require(:packet).permit(:category_id, :title, :description, :youtube_url, photos: [])
+  end
+
+   def add_vote
     @packet = Packet.find(params[:packet_id])
     @packet.vote += 1
     if @packet.save
@@ -60,12 +67,6 @@ class PacketsController < ApplicationController
       end
     end
 
-  end
-
-  private
-
-  def packets_params
-    params.require(:packet).permit(:category_id, :title, :description, :youtube_url, photos: [])
   end
 
 end
