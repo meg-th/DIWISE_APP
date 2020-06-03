@@ -12,7 +12,7 @@
         <div class="">
           <%= @packet.rating %>
           <% if @packet.packet_ratings.where(user: current_user).empty? %>
-            <%= link_to packet_packet_ratings_path(@packet), method: :post, remote: true do %>
+            <%= link_to packet_packet_ratings_path(@packet,show: true), method: :post, remote: true do %>
               <span style="font-size: 2rem;">
                 <span style="color: #6dde89;">
                   <i class=" icon fas fa-heart"></i>
@@ -86,11 +86,13 @@
         </div>
         <!-- Tips tab -->
         <div class="tab-pane fade text-center" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-          Use your brain
+          <div class="carousel-tips">
+            Use your brain
+          </div>
         </div>
         <!-- Tools tab-->
         <div class="tab-pane fade text-center" id="nav-tools" role="tabpanel" aria-labelledby="nav-tools-tab">
-          <ul class="w-100 h-500">
+          <ul class="carousel-tools">
             <% @packet.tools.each do |tool| %>
             <li><%= tool.name %></li>
             <% end %>
