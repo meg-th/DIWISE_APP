@@ -100,7 +100,7 @@
 
 <!-- Display chatrooms -->
       <% if @started_chatrooms.empty? && @user == current_user %>
-        <div class="container card p-3 user-card montserrat">
+        <div class="container card p-3 user-card montserrat text-center">
           I'VE MADE NO CHATROOMS
         </div>
       <% elsif @user != current_user %>
@@ -135,7 +135,7 @@
       <% end %>
 
     <% if @packet_chatrooms.empty? && @user == current_user %>
-      <div class="container card p-3 user-card montserrat">
+      <div class="container card p-3 user-card montserrat text-center">
         NO CHATROOMS ON MY PACKETS
       </div>
     <% elsif @user != current_user %>
