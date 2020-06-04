@@ -14,8 +14,10 @@
         <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
       <% end %>
     </div>
-      <h5 class="card-title px-3 my-3 packet-title"><%= packet.title %></h5>
-      <p class= "card-text px-3 packet-title"><%= packet.category&.name %></p>
+    <div class="container w-80">
+      <h4 class="card-title pr-3 my-3 packet-title"><%= packet.title %></h4>
+      <p class= "card-text pr-3 packet-title"><%= packet.category&.name %></p>
+      </div>
     <% end %>
     <div class=" d-flex container container-rating align-items-center justify-content-center" id="packet-<%= packet.id %>">
        <%= packet.rating %>
@@ -42,8 +44,8 @@
           </a>
         <% end %>
         <div class="dropdown-menu dropdown-menu-right diwise-dropdown" aria-labelledby="navbarDropdown">
-         <%= link_to "See #{packet.user.username}'s profile", user_path( packet.user_id), class: "dropdown-item" %>
-         <%= link_to "Start a conversation with #{packet.user.username}", packet_chatrooms_path(packet), method: :post, class: "dropdown-item", remote: true %>
+          <%= link_to "See #{packet.user.username}'s profile", user_path( packet.user_id), class: "dropdown-item" %>
+          <%= link_to "Start a conversation with #{packet.user.username}", packet_chatrooms_path(packet), method: :post, class: "dropdown-item", remote: true %>
         </div>
      </div>
   </div>

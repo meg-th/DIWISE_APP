@@ -1,3 +1,4 @@
+
 .diwise-card {
   border: 1px solid rgba(107, 107, 107, 0.1);
   box-sizing: border-box;
@@ -18,10 +19,24 @@
     }
   }
 }
-
+a {
+  text-decoration: none!important;
+}
 .packet-title a {
+  color: #202c31;
+  font-size: 34px;
+}
+
+.packet-title:hover {
   text-decoration: none;
   color: #202c31;
+  opacity: 0.5;
+}
+
+.packet-title {
+  width: 80%;
+  // position: relative;
+  // z-index: 1;
 }
 
 .container-rating {
