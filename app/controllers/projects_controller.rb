@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   helper_method :display_project_tools
   before_action :project_find, only: [:show, :destroy]
-  
+
   def new
     @project = Project.new
   end
@@ -25,14 +25,14 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to user_path(current_user)
   end
-  
+
 
   private
 
   def project_find
     @project = Project.find(params[:id])
   end
-  
+
 
   def project_params
     params.require(:project).permit(:title)
