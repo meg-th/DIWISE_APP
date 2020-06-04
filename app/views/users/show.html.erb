@@ -77,7 +77,7 @@
                     <% projects.drop(1).each do |project| %>
                       <div class="carousel-item col-12 col-sm-6 col-md-4 mt-5 col-lg-3">
                         <div class="card shadow">
-                          <div class="background-image-card" style="background-image: url('/assets/<%= @sample_image.sample %>.jpg');">
+                          <div class="background-image-card" style="background-image: url(<%= image_path `#{@sample_image.sample}.jpg` %>);">
                             <p class="card-title font-weight-bold"><%= project.title.capitalize %></p>
                           </div>
                           <div class="card-body">
