@@ -9,7 +9,7 @@
     <div class="search-form-control form-group">
       <%= form_tag packets_path, method: :get do %>
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "What are you looking for?" %>
-        <%= button_tag "Search", class: "btn btn-success diwise-btn" do %><i class="fa fa-search"></i><% end %>
+        <%= button_tag "Search", class: "btn search-btn" do %><i class="fa fa-search"></i><% end %>
       <% end %>
     </div>
   </div>
