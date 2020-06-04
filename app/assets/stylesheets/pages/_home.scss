@@ -4,7 +4,8 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 0;
+  position: relative;
 }
 
 .banner h1 {
@@ -17,7 +18,11 @@
 
 .landing-text {
   // min-height: calc(100vh - 62px);
-  margin-top: 150px;
+  // height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .banner h3 {
