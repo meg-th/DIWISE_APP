@@ -48,6 +48,6 @@ class ProjectsController < ApplicationController
         all_tools << tool
       end
     end
-    all_tools.uniq! { |t| t.name }
+    all_tools.uniq { |t| t.name }
   end
 end
