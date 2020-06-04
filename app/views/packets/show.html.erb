@@ -1,6 +1,7 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-12">
     <div class="card m-5 p-5">
+
       <div class="container d-flex justify-content-between mb-3">
         <div>
           <div class="d-flex">
@@ -17,26 +18,26 @@
                 <% end %>
               <% end %>
             </div>
-           
           </div>
           <p><%= @packet.description %></p>
         </div>
+
         <div class = "packet-show-avatar">
-        <% if @packet.user.photo.attached? %>
-          <%= cl_image_tag @packet.user.photo.key, class: "avatar-large dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% else %>
-          <a class = "no-avatar-icon" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span style="font-size: 58px;">
-              <span style="color: #6dde89;">
-                <i class="fas fa-plus-circle"></i>
+          <% if @packet.user.photo.attached? %>
+            <%= cl_image_tag @packet.user.photo.key, class: "avatar-large dropdown-toggle", id:"navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <a class = "no-avatar-icon" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span style="font-size: 58px;">
+                <span style="color: #6dde89;">
+                  <i class="fas fa-plus-circle"></i>
+                </span>
               </span>
-            </span>
-          </a>
-        <% end %>
-        <div class="dropdown-menu dropdown-menu-right diwise-dropdown" aria-labelledby="navbarDropdown">
-         <%= link_to "See #{@packet.user.username}'s profile", user_path( @packet.user_id), class: "dropdown-item" %>
-         <%= link_to "Start a conversation with #{@packet.user.username}", packet_chatrooms_path(@packet), method: :post, class: "dropdown-item" %>
-        </div>
+            </a>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-right diwise-dropdown" aria-labelledby="navbarDropdown">
+           <%= link_to "See #{@packet.user.username}'s profile", user_path( @packet.user_id), class: "dropdown-item" %>
+           <%= link_to "Start a conversation with #{@packet.user.username}", packet_chatrooms_path(@packet), method: :post, class: "dropdown-item" %>
+          </div>
         </div>
       </div>
 
@@ -44,7 +45,6 @@
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Photos</a>
           <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Videos</a>
-          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Tips</a>
           <a class="nav-item nav-link" id="nav-tools-tab" data-toggle="tab" href="#nav-tools" role="tab" aria-controls="nav-tools" aria-selected="false">Tools</a>
         </div>
       </nav>
@@ -77,7 +77,6 @@
             </div>
           <% end %>
         </div>
-
         <!-- Videos tab with upload options -->
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           <% if !@packet.youtube_url.empty? && @packet.video %>
@@ -98,12 +97,6 @@
             <% end %>
             <% end %>
           <% end %>
-        </div>
-        <!-- Tips tab -->
-        <div class="tab-pane fade text-center" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-          <div>
-            Use your brain
-          </div>
         </div>
         <!-- Tools tab-->
         <div class="tab-pane fade text-center" id="nav-tools" role="tabpanel" aria-labelledby="nav-tools-tab">

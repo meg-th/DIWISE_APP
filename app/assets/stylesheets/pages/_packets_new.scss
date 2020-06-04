@@ -1,7 +1,7 @@
 
 .example_e {
 border: none;
-background: #202c31;
+background-color: #202c31!important;
 color: #ffffff !important;
 font-weight: 100;
 padding: 20px;
@@ -27,6 +27,8 @@ transition: all 0.3s ease 0s;
   display: flex;
   justify-content: center;
   margin-top: 12px;
+  font-size: 16px;
+  font-weight: lighter;
 }
 
 .back-button:hover {
