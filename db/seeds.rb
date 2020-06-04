@@ -130,7 +130,7 @@ Tool.create(name: 'Power Drill', category_id: 6, icon_image: 'fas fa-exclamation
 Tool.create(name: 'Spray Paint', category_id: 6, icon_image:'fas fa-spray-can')
 Tool.create(name: 'Compass', category_id: 6, icon_image: 'fas fa-pencil-ruler')
 Tool.create(name: 'Staples', category_id: 6)
-Tool.create(name: 'Jigsaw', category_id: 6, icon_image 'fas fa-puzzle-piece')
+Tool.create(name: 'Jigsaw', category_id: 6, icon_image: 'fas fa-puzzle-piece')
 Tool.create(name: 'Duct Tape', category_id: 6, icon_image:'fas fa-tape')
 Tool.create(name: 'Plastic Bottle', category_id: 6)
 Tool.create(name: 'Router', category_id: 6, icon_image:'fas fa-tachometer-alt')
