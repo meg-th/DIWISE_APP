@@ -15,7 +15,7 @@
        <%= packet.rating %>
        <% if packet.packet_ratings.where(user: current_user).empty? %>
          <%= link_to packet_packet_ratings_path(packet), method: :post, remote: true do %>
-           <span style="font-size: 2rem;">
+           <span style="font-size: 3rem;">
              <span style="color: #6dde89;">
                <i class=" icon fas fa-heart"></i>
              </span>
