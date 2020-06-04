@@ -8,7 +8,7 @@
   <!-- Search Form DON'T TOUCH - PAWS OFF 🐾 -->
     <div class="search-form-control form-group">
       <%= form_tag packets_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Browse" %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "What are you looking for?" %>
         <%= button_tag "Search", class: "btn btn-success diwise-btn" do %><i class="fa fa-search"></i><% end %>
       <% end %>
     </div>
@@ -30,7 +30,7 @@
 
   <!-- All -->
       <li class="nav-item active mx-3">
-        <%= link_to "All DIY Lessons", packets_path, class: "top-nav" %>
+        <%= link_to "Browse All Lessons", packets_path, class: "top-nav" %>
       </li>
 
   <!-- User Dropdown -->
@@ -49,7 +49,7 @@
         <% end %>
         <div class="dropdown-menu dropdown-menu-right diwise-dropdown" aria-labelledby="navbarDropdown">
           <%= link_to "My Account", user_path(current_user), class: "dropdown-item" %>
-          <%= link_to "Add a DIY Upload", new_packet_path, class: "btn btn-warning", class: "dropdown-item" %>
+          <%= link_to "Add DIY Lesson", new_packet_path, class: "btn btn-warning", class: "dropdown-item" %>
           <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
         </div>
         </li>
