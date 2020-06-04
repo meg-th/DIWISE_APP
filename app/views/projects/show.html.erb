@@ -7,7 +7,7 @@
         <%= link_to "Account", user_path(current_user), class: "btn btn-success" %>
       </div>
   <% else %>
-    <div>
+    <div class="container mt-4 d-flex justify-content-center">
       <h3><strong><%= @project.title %></strong></h3>
       <div class="border-bottom"></div>
     </div>
@@ -15,15 +15,17 @@
       <%= link_to "Browse DIY Lessons", packets_path, class: "btn btn-success" %>
       <%= link_to "Account", user_path(current_user), class: "btn btn-success" %>
     </div>
-    <div class="tool-cards-grid">
+    <div class="container d-flex justify-content-center">
       <h3>These are the tools you need:</h3>
+    </div>
+    <div class="tool-cards-grid">
       <% @tools.each do |tool| %>
-     <div class = "card tool-card ">
-        <div class="container d-flex flex-column align-items-center py-2">
-         <span class="tool-circle"><i class="<%= tool.icon_image %> tool-icon"></i></span>
-        <strong><%= tool.name %></strong>
-        </div>
-     </div>
+       <div class = "card tool-card ">
+          <div class="container d-flex flex-column align-items-center py-2">
+           <span class="tool-circle"><i class="<%= tool.icon_image %> tool-icon"></i></span>
+          <strong><%= tool.name %></strong>
+          </div>
+       </div>
       <% end %>
     </div>
     <div class="container grid p-5">
