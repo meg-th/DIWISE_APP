@@ -28,6 +28,7 @@ import { initSelect2 } from '../plugins/init_select2';
 import { filter_by } from '../components/filter_by';
 import { carousel } from '../components/carousel';
 import { previewImageOnFileSelect } from '../components/photo_preview';
+import { scroll } from '../components/scroll';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -37,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   carousel();
   previewImageOnFileSelect();
+  scroll();
 });
 
 
