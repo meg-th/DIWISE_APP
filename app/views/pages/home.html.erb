@@ -1,23 +1,24 @@
 <!-- Cover photo -->
-<div class="banner" style="background-image: linear-gradient(180deg, rgba(196, 196, 196, 0.56) 0%, rgba(255, 255, 255, 0) 300%), url(https://res.cloudinary.com/dynjb5ftd/image/upload/v1590656895/DI_WISE/oxa-roxa-oHoOrmEms38-unsplash_hp9u1x.jpg);">
+<!-- <div class="banner" style="background-image: linear-gradient(180deg, rgba(196, 196, 196, 0.56) 0%, rgba(255, 255, 255, 0) 300%), url(https://res.cloudinary.com/dynjb5ftd/image/upload/v1590656895/DI_WISE/oxa-roxa-oHoOrmEms38-unsplash_hp9u1x.jpg);"> -->
+<div class="banner" style="background-image: linear-gradient(180deg, rgba(196, 196, 196, 0.56) 0%, rgba(255, 255, 255, 0) 300%), url(/assets/paint-color.jpg);">
   <div class="container text-center">
     <div class="landing-text">
-      <h1 class="mb-4">Anyone. Any Project.</h1>
-      <h3 class="my-4">Join the online community doing it all themselves.</h3>
-      <i class="fa fa-chevron-right" style="color: #202c31"></i><i class="fa fa-chevron-right" style="color: #202c31"></i> <%= link_to packets_path, { class: "btn btn-success diwise-btn" } do %><i class="fa fa-wrench"></i><% end %>
-      <i class="fa fa-chevron-left" style="color: #202c31"></i><i class="fa fa-chevron-left" style="color: #202c31"></i>
+      <!-- <a href="#" class="link link--diwise"><span data-letters-l="Anyone." data-letters-r="Any Project">Anyone. Any Project</span></a> -->
+      <h1 class="mb-4 ">Anyone. Any Project.</h1>
+      <h3 class="my-4">Join the online community nailing it all themselves.</h3>
+       <%= link_to packets_path, { class: "btn btn-success diwise-btn" } do %><i class="fa fa-wrench"></i><% end %>
     </div>
   </div>
 </div>
 
 <!-- How it works -->
-<div class="banner-container">
-  <h2 class="text-center p-2 mt-5 mb-4 border-bottom border-dark">How it works</h2>
+<div class="container">
+  <h2 class="text-center p-2 mt-5 mb-4 border-bottom border-dark" width=“50%”>How it works</h2>
   <div>
     <div class="banner-cards">
       <div class="banner-card">
         <%= image_tag "search.png", alt: "alttext" %>
-        <!-- <h4 class= "text-center p-2 mt-5 mb-4 border-bottom border-dark">Be inspired</h4> -->
+        <h4>Be inspired</h4>
         <p>Search all lessons from the DI-WISE community</p>
       </div>
       <div class="banner-card">
@@ -38,8 +39,6 @@
 <div class ="container mb-5">
   <h3 class= "text-center p-2 mt-5 mb-4 border-bottom border-dark">Trending Projects</h3>
   <div class="home-cards">
-  	<%= render 'shared/packet_card', packets: @packets %>
+    <%= render 'shared/packet_card', packets: @packets %>
   </div>
 </div>
-
-

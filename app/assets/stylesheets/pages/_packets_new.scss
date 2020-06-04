@@ -27,6 +27,8 @@ transition: all 0.3s ease 0s;
   display: flex;
   justify-content: center;
   margin-top: 12px;
+  font-size: 16px;
+  font-weight: lighter;
 }
 
 .back-button:hover {
@@ -62,4 +64,8 @@ transition: all 0.3s ease 0s;
   display: flex;
   justify-content: space-around;
   margin-bottom: 8px;
+}
+
+.image {
+  background-size: contain;
 }

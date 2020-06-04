@@ -13,9 +13,26 @@
 .diwise-btn {
 	border-radius: 50px;
 }
+.search-btn {
+  border-radius: 50px;
+  background: rgba(76, 175, 80, 0)
+}
+.fa-search {
+    position: absolute;
+    top: 10px;
+    bottom: 8px;
+    right: 18px;
+    color: #3aafa9;
+    font-size: 24px;
+}
+
+.fa-search:hover {
+   transform: scale(1.5);
+   transition-timing-function: ease-in;
+}
 
 .fa {
-  padding-top: 5px;
+  // padding-top: 5px;
   padding-bottom: 5px;
 }
 .fa-wrench {

@@ -25,13 +25,13 @@
 .container-packet-show-rating {
   background: #202c31;
   color: white;
-  width: 60px;
-  height:60px;
-  border:1px solid rgba(107, 107, 107, 0.1);
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(107, 107, 107, 0.1);
   border-radius: 100%;
   position: absolute;
-  right: 150px;
-  top: 40px;
+  right: 118px;
+  top: 55px;
     .icon {
       position:absolute;
       right: 80px;
@@ -50,11 +50,10 @@
   border-radius: 50%;
   background-size: cover;
   background-position: top center;
-  
+
   .no-avatar-icon {
     position: relative;
     bottom: 14px;
   }
 }
-
 
