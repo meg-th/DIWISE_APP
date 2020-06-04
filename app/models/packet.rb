@@ -13,7 +13,7 @@ class Packet < ApplicationRecord
   validates :photos, presence: true
   before_save :render_url
   has_many :packet_ratings
-  has_many :chatrooms
+  has_many :chatrooms, dependent: :destroy
 
 
   include PgSearch::Model

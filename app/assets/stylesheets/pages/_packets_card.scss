@@ -6,6 +6,17 @@
   background: white;
   height:400px;
   font-size: 15px;
+
+  &:hover{
+    #delete-icon{
+      opacity: 1;
+      transition: 0.8s;
+
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
 }
 
 .packet-title a {
@@ -90,4 +101,13 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+#delete-icon {
+  position: absolute;
+  font-size: xx-large;
+  top: -14px;
+  left: -13px;
+  opacity: 0;
+  color: #202C31;
 }

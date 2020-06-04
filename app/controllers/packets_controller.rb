@@ -50,7 +50,12 @@ class PacketsController < ApplicationController
     end
   end
 
-
+  def destroy
+    @packet = Packet.find(params[:id])
+    @packet.destroy
+    redirect_to packets_path
+  end
+  
   private
 
   def packets_params
