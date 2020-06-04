@@ -8,8 +8,8 @@
         <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
       <% end %>
     </div>
-    <h5 class="card-title px-3 my-3"><%= packet.title %></h5>
-    <p class= "card-text px-3"><%= packet.category&.name %></p>
+      <h5 class="card-title px-3 my-3 packet-title"><%= packet.title %></h5>
+      <p class= "card-text px-3 packet-title"><%= packet.category&.name %></p>
     <% end %>
     <div class=" d-flex container container-rating align-items-center justify-content-center" id="packet-<%= packet.id %>">
        <%= packet.rating %>

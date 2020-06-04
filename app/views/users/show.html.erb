@@ -63,7 +63,7 @@
                         <div class="card-body">
                           <!-- <h4 class="card-title font-weight-bold"><%= projects.first.title.capitalize %></h4> -->
                           <div class="d-flex pt-3 pb-3 justify-content-between align-items-center">
-                            <a class="btn btn-primary btn-md btn-rounded btn-open-card">Open</a>
+                            <%= link_to "Open", project_path(projects.first), class: "btn btn-primary btn-md btn-rounded btn-open-card" %>
                             <%= link_to project_path(projects.first), data: { confirm: "Are you sure?" }, method: :delete do %>
                               <i class="fas fa-trash-alt"></i>
                             <% end %>
@@ -79,7 +79,7 @@
                           </div> 
                           <div class="card-body">
                             <div class="d-flex pt-3 pb-3 justify-content-between align-items-center">
-                              <a class="btn btn-primary btn-md btn-rounded btn-open-card">Open</a>
+                              <%= link_to "Open", project_path(project), class: "btn btn-primary btn-md btn-rounded btn-open-card" %>
                               <%= link_to project_path(project), data: { confirm: "Are you sure?" }, method: :delete do %>
                                 <i class="fas fa-trash-alt"></i>
                               <% end %>
