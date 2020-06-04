@@ -1,5 +1,11 @@
 <% @packets.each do |packet| %>
   <div class="card diwise-card">
+    <%# raise %>
+    <% if packet.user == current_user %>
+      <%= link_to packet_path(packet), data: { confirm: "Are you sure?" }, method: :delete do %>
+        <i class="fas fa-times-circle" id="delete-icon"></i>
+      <% end %>
+    <% end %>
     <%= link_to packet_path(packet) do %>
     <div class ="px-3 pt-3 mt-2">
       <% if packet.youtube_url.present? %>
