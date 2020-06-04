@@ -37,7 +37,7 @@
         <% else %>
          <!-- Top content -->
         <div class="row p-3 align-items-center">
-          <h2 class="montserrat mr-3">Your projects</h2>
+          <h2 class="montserrat mr-3">Your Active Projects</h2>
           <%= link_to new_project_path do %>
             <i class="fas fa-plus"></i>
           <% end %>
@@ -100,15 +100,15 @@
 
 <!-- Display chatrooms -->
       <% if @started_chatrooms.empty? && @user == current_user %>
-        <div class="container card p-3 user-card montserrat text-center">
-          I'VE MADE NO CHATROOMS
+        <div class="container w-25 card p-3 user-card montserrat text-center">
+          Inbox
         </div>
       <% elsif @user != current_user %>
       <% else %>
         <div class="chatroom-container">
           <div class="d-flex justify-content-around">
             <div class="w-25 card p-3 user-card montserrat text-center">
-              MY CHATROOMS
+              Sent Messages
             </div>
           </div>
           <div class="card-grid">
@@ -135,15 +135,15 @@
       <% end %>
 
     <% if @packet_chatrooms.empty? && @user == current_user %>
-      <div class="container card p-3 user-card montserrat text-center">
-        NO CHATROOMS ON MY PACKETS
+      <div class="container w-25 card p-3 user-card montserrat text-center">
+        Inbox
       </div>
     <% elsif @user != current_user %>
     <% else %>
       <div class="chatroom-container">
         <div class="d-flex justify-content-around">
           <div class="w-25 card p-3 user-card montserrat text-center">
-            CHATROOMS ON MY PACKETS
+            Sent Messages
           </div>
         </div>
         <div class="card-grid">
