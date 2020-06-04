@@ -2,9 +2,6 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-    respond_to do |format|
-      format.js
-    end
   end
 
   def create
