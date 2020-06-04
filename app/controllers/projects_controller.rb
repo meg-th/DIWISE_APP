@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 
   def show
     @packets = @project.packets
-    @display_tools = display_project_tools
+    @tools = display_project_tools
   end
 
   def destroy

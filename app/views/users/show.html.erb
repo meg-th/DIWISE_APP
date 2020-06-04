@@ -105,24 +105,33 @@
         </div>
       <% elsif @user != current_user %>
       <% else %>
-        <% @started_chatrooms.each do |chatroom| %>
-          <div class="notification">
-            <%= cl_image_tag chatroom.packet.photos.first.key, width: 150, height: 100 %>
-            <div class="notification-content">
-              <p><small><%= chatroom.created_at.strftime("%a %b %e at %l:%M%p") %></small></p>
-              <p><strong><%= chatroom.packet.title %></strong> with <%= chatroom.packet.user.username %></p>
-            </div>
-
-            <div class="notification-actions">
-              <%= link_to chatroom_path(chatroom) do %>
-                Reply <i class="far fa-envelope-open"></i>
-              <% end %>
-              <%= link_to chatroom_path(chatroom), data: { confirm: "Are you sure?" }, method: :delete do %>
-                Delete<i class="far fa-trash-alt"></i>
-              <% end %>
+        <div class="chatroom-container">
+          <div class="d-flex justify-content-around">
+            <div class="w-25 card p-3 user-card montserrat text-center">
+              MY CHATROOMS
             </div>
           </div>
-        <% end %>
+          <div class="card-grid">
+            <% @started_chatrooms.each do |chatroom| %>
+              <div class="notification">
+                <%= cl_image_tag chatroom.packet.photos.first.key, width: 150, height: 100 %>
+                <div class="notification-content">
+                  <p><small><%= chatroom.created_at.strftime("%a %b %e at %l:%M%p") %></small></p>
+                  <p><strong><%= chatroom.packet.title %></strong> with <%= chatroom.packet.user.username %></p>
+                </div>
+
+                <div class="notification-actions">
+                  <%= link_to chatroom_path(chatroom) do %>
+                    Reply <i class="far fa-envelope-open"></i>
+                  <% end %>
+                  <%= link_to chatroom_path(chatroom), data: { confirm: "Are you sure?" }, method: :delete do %>
+                    Delete<i class="far fa-trash-alt"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <% end %>
 
     <% if @packet_chatrooms.empty? && @user == current_user %>
@@ -131,32 +140,37 @@
       </div>
     <% elsif @user != current_user %>
     <% else %>
-      <%  @packet_chatrooms.each do |chatroom| %>
-        <div class="notification">
-          <%= cl_image_tag chatroom.packet.photos.first.key, width: 150, height: 100 %>
-          <div class="notification-content">
-            <p><small><%= chatroom.created_at.strftime("%a %b %e at %l:%M%p") %></small></p>
-            <p>
-              <strong><%= chatroom.packet.title %></strong> with <%= chatroom.packet.user.username %>
-            </p>
-          </div>
-
-          <div class="notification-actions">
-            <%= link_to chatroom_path(chatroom) do %>
-              Reply <i class="far fa-envelope-open"></i>
-            <% end %>
-            <%= link_to chatroom_path(chatroom), data: { confirm: "Are you sure?" }, method: :delete do %>
-              Delete<i class="far fa-trash-alt"></i>
-            <% end %>
+      <div class="chatroom-container">
+        <div class="d-flex justify-content-around">
+          <div class="w-25 card p-3 user-card montserrat text-center">
+            CHATROOMS ON MY PACKETS
           </div>
         </div>
-      <% end %>
+        <div class="card-grid">
+          <%  @packet_chatrooms.each do |chatroom| %>
+            <div class="notification">
+              <%= cl_image_tag chatroom.packet.photos.first.key, width: 150, height: 100 %>
+              <div class="notification-content">
+                <p><small><%= chatroom.created_at.strftime("%a %b %e at %l:%M%p") %></small></p>
+                <p>
+                  <strong><%= chatroom.packet.title %></strong> with <%= chatroom.packet.user.username %>
+                </p>
+              </div>
+
+              <div class="notification-actions">
+                <%= link_to chatroom_path(chatroom) do %>
+                  Reply <i class="far fa-envelope-open"></i>
+                <% end %>
+                <%= link_to chatroom_path(chatroom), data: { confirm: "Are you sure?" }, method: :delete do %>
+                  Delete<i class="far fa-trash-alt"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     <% end %>
 
     </div>
   </div>
 </div>
-
-    <!-- <div class="container h-90"> -->
-
-    <!-- </div> -->
