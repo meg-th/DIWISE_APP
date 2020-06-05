@@ -14,8 +14,8 @@
         <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
       <% end %>
     </div>
-    <div class="container w-80">
-      <h4 class="card-title pr-3 my-3 packet-title"><%= packet.title %></h4>
+    <div class="container">
+      <h4 class="card-title pr-3 my-3 packet-title "><%= packet.title %></h4>
       <p class= "card-text pr-3 packet-title"><%= packet.category&.name %></p>
       </div>
     <% end %>

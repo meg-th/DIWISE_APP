@@ -16,3 +16,10 @@ $(".tabtest a").on("click", function(){
   $(filter).show()
   return false
 })
+
+$('#pills-tab a').on('click', function (e) {
+  e.preventDefault()
+  $('#myTab a[href="#pills-messages"]').tab('show')
+  $('#myTab a[href="#pills-uploads"]').tab('show')
+  $('#myTab a[href="#pills-settings"]').tab('show')
+})
