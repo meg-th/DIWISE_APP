@@ -8,7 +8,7 @@
              Share Your DI-WISdom
             </div>
           </div>
-            <%= simple_form_for @packet do |f| %>
+            <%= simple_form_for @packet, html: { autocomplete: 'off' } do |f| %>
             <div class="form-inputs">
               <%= f.input :title, label: '1) Title', placeholder: 'e.g. Elegant Coffee Table' %>
               <%= f.association :category, label: '2) Select category' %>

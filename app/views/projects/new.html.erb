@@ -7,7 +7,7 @@
           <div class="text-center project-title">
             What Project do you want to start?
           </div>
-          <%= simple_form_for @project do |f| %>
+          <%= simple_form_for @project, html: { autocomplete: 'off' } do |f| %>
           <div class="mt-3">
             <%= f.input :title, label: false, placeholder: 'e.g. Re-doing bathroom' %>
             <div class="button_cont" align="center">
