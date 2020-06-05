@@ -1,11 +1,11 @@
 <div class="container p-3 d-flex justify-content-around">
   <div class="col-12">
-    <div class="card m-5 p-5">
+    <div class="card m-5 pr-5 pl-5 pb-5">
 
       <div class="container d-flex justify-content-between mb-3">
         <div>
           <div class="d-flex">
-            <h1 class="mr-3"><strong><%= @packet.title %> </strong></h1>
+            <h1 class="packet-title"><strong><%= @packet.title %> </strong></h1>
             <div class = "d-flex container container-packet-show-rating align-items-center justify-content-center">
               <%= @packet.rating %>
               <% if @packet.packet_ratings.where(user: current_user).empty? %>
@@ -39,15 +39,16 @@
           </div>
         </div>
       </div>
-
-      <nav>
-        <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Photos</a>
-          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Videos</a>
-          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Tips</a>
-          <a class="nav-item nav-link" id="nav-tools-tab" data-toggle="tab" href="#nav-tools" role="tab" aria-controls="nav-tools" aria-selected="false">Tools</a>
-        </div>
-      </nav>
+      <div class=mt-5>
+        <nav>
+          <div class="nav nav-tabs d-flex justify-content-center mt-3" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Photos</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Videos</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Tips</a>
+            <a class="nav-item nav-link" id="nav-tools-tab" data-toggle="tab" href="#nav-tools" role="tab" aria-controls="nav-tools" aria-selected="false">Tools</a>
+          </div>
+        </nav>
+      </div>
 
       <div class="tab-content my-3" id="nav-tabContent">
         <!-- Photos tab with carousel -->
