@@ -66,11 +66,8 @@
   }
 }
 
+// packet cards 
 
-// User page tab windows
-
-.user-page {
-}
 
 // Messages
 
@@ -81,23 +78,32 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  width: 800px;
+  width: 850px;
+  border-radius:8px;
+  padding: 8px 16px;
 }
 
 .notification .img {
   height: 120px;
-  width: 100%;
   object-fit: cover;
+  position: relative;
+  top: 10px;
+
+}
+
+.notification-content {
+  display:flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .notification-content h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
+  font-size: 16px;
+  margin: 15px;
 }
 
 .notification-content p {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -118,14 +124,18 @@
 
 .notification .notification-actions a {
   color: #999999;
-  margin-left: 100px;
+  margin-left: 30px;
   font-size: 14px;
 }
 
 .card-grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 16px;
+    grid-gap: 12px;
+}
+
+.chatroom-container {
+  border-radius:8px;
 }
 
 

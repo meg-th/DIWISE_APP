@@ -16,7 +16,7 @@
     </div>
     <div class="container">
       <h4 class="card-title pr-3 my-3 packet-title "><%= packet.title %></h4>
-      <p class= "card-text pr-3 packet-title"><%= packet.category&.name %></p>
+      <strong><p class= "card-text pr-3 packet-title"><%= packet.category&.name %></p></strong>
       </div>
     <% end %>
     <div class=" d-flex container container-rating align-items-center justify-content-center" id="packet-<%= packet.id %>">
