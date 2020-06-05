@@ -9,7 +9,7 @@
     <%= link_to packet_path(packet) do %>
     <div class ="px-3 pt-3 mt-2">
       <% if packet.youtube_url.present? %>
-        <iframe height='250px' class = "w-100 "src="http://www.youtube.com/embed/<%= packet.youtube_url %>"></iframe>
+        <iframe height='250px' class = "w-100 "src="https://www.youtube.com/embed/<%= packet.youtube_url %>"></iframe>
       <% elsif packet.photos.any? %>
         <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
       <% end %>
