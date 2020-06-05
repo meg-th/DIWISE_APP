@@ -16,7 +16,7 @@
     <% end %>
     <div class="container">
       <%= link_to packet_path(packet) do %>
-        <h4 class="card-title pr-3 my-3 packet-title "><%= packet.title %></h4>
+        <h4 class="card-title pr-3 my-3 packet-title" id="title-packet-index"><%= packet.title %></h4>
       <% end %>
       <%= link_to category_path(packet.category) do %>
         <p class= "card-text pr-3 packet-title" id="link-category"><%= packet.category&.name %></p>
