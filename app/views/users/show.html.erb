@@ -7,9 +7,8 @@
   <% if @user == current_user %>
     <div class="user-options">
       <ul class="nav nav-tabs justify-content-end list-inline tabs-underlined">
-        <li class="active mx-3 my-3"><a data-toggle="tab" href="#home">Home</a></li>
+        <li class="mx-3 my-3"><a class="tab-underlined" data-toggle="tab" href="#uploads"> Home </a></li>
         <li class="mx-3 my-3"><a class="tab-underlined" data-toggle="tab" href="#messages">Messages</a></li>
-        <li class="mx-3 my-3"><a class="tab-underlined" data-toggle="tab" href="#uploads"> Your DIY Uploads</a></li>
         <li class="mx-3 my-3"><a class="tab-underlined" data-toggle="tab" href="#projects"> Your Projects</a></li>
         <li class="mx-3 my-3"><a class="tab-underlined" data-toggle="tab" href="#settings">Account Settings</a></li>
       </ul>
@@ -17,7 +16,7 @@
   <% else %>
   <div class="user-options">
     <ul class="nav nav-tabs justify-content-end list-inline tabs-underlined">
-      <li class="active mx-3 my-3"><a data-toggle="tab" href="#home">Home</a></li>
+ 
       <li class="mx-3 my-3"><a class="tab-underlined" data-toggle="tab" href="#uploads"> <%= @user.username%>'s DIY Uploads</a></li>
     </ul>
   </div>
@@ -112,11 +111,11 @@
            </div>
          </div>
       </div>
-      <div id="uploads" class="tab-pane fade show active">
-        <% if @user == current_user %>
-          <h3> Your DIY Uploads</h3>
+      <div id="uploads" class="tab-pane fade show active justify-content-center"> 
+        <% if @user ==current_user %>
+          <h3>Welcome back, <%= @user.username%>! Here are your DIY Uploads:</h3>
         <% else %>
-          <h3> <%= @user.username%>'s' DIY Uploads</h3>
+          <h2> <%=@user.username%>'s Profile </h2>
         <% end %>
         <div class="cards">
         <% @user.packets.each do |packet| %>
