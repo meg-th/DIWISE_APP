@@ -18,6 +18,7 @@
     }
   }
 }
+
 a {
   text-decoration: none!important;
 }
@@ -34,10 +35,17 @@ a {
 
 .packet-title {
   width: 70%;
-  height: 3.6rem;
+  height: 1.6rem;
+  margin-bottom: 1rem !important;
+  margin-top: 3rem;
   // position: relative;
   // z-index: 1;
+  
 }
+
+  #link-category {
+    font-weight: bold;
+    }
 
 .container-rating {
   background: #202c31;
