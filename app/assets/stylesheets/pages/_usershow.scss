@@ -134,9 +134,15 @@
     grid-gap: 12px;
 }
 
-.chatroom-container {
+.chatroom-container, .tools-container {
   border-radius:8px;
 }
+
+.tools-container {
+  border-width: 1.5px !important;
+}
+
+
 
 
 // .chatroom-container {
