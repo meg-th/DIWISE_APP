@@ -2,7 +2,7 @@
 
 .user-show-banner {
   background-color: rgb(49, 145, 145);
-  width:100%; 
+  width:100%;
   height: 160px;
   .user-show-avatar {
     position: absolute;
@@ -46,16 +46,18 @@
   opacity: 1;
   border-bottom: 3px solid white;
 }
-  
 
-// Main page content 
 
+// Main page content
+.user-tab-content {
+  width: 80%;
+}
 
 .user-info-box {
   background-color: white;
   color:#202c31;
   height:400px;
-  width: 240px;
+  width: 20%;
   border-radius:16px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   .user-details {
@@ -68,7 +70,6 @@
 // User page tab windows
 
 .user-page {
-
 }
 
 // Messages
