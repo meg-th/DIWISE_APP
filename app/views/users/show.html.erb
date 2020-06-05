@@ -23,8 +23,9 @@
   </div>
   <% end %>
 </div>
-<div class= "user-page mx-3 my-3">
-  <div class="user-info-box align-items-center">
+
+<div class= "user-page mx-3 my-3 d-flex">
+  <div class="user-info-box w-15 align-items-center">
     <div class = "user-details d-flex justify-content-around ">
       <h3><%= @user.username %></h3>
     </div>
@@ -38,7 +39,7 @@
       <p></p>
     </div>
   </div>
-  <div class="d-flex justify-content-end">
+  <div class="d-flex justify-content-center p-4 user-tab-content">
     <div class="tab-content">
       <div id="home" class="tab-pane fade in active">
         <h3>Welcome back, <%= @user.username%>!</h3>
@@ -99,7 +100,7 @@
                    </div>
                  </div>
                <% end %>
-             </div>   
+             </div>
       </div>
       <div id="uploads" class="tab-pane fade">
         <% if @user == current_user %>
@@ -174,7 +175,7 @@
                   <i class="fas fa-trash-alt"></i>
                 <% end %>
           <% end %>
-              </div>  
+              </div>
             </div>
            </div>
         </div>
@@ -189,4 +190,3 @@
 
 
 
-  
