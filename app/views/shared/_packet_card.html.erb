@@ -7,12 +7,18 @@
       <% end %>
     <% end %>
     <%= link_to packet_path(packet) do %>
-      <div class ="px-3 pt-3 mt-2">
-        <% if packet.youtube_url.present? %>
-          <iframe height='250px' class = "w-100 "src="https://www.youtube.com/embed/<%= packet.youtube_url %>"></iframe>
-        <% elsif packet.photos.any? %>
-          <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
-        <% end %>
+
+    <div class ="px-3 pt-3 mt-2">
+      <% if packet.youtube_url.present? %>
+        <iframe height='250px' class = "w-100 "src="https://www.youtube.com/embed/<%= packet.youtube_url %>"></iframe>
+      <% elsif packet.photos.any? %>
+        <%= cl_image_tag packet.photos.first.key, class: "card-img-top w-100" %>
+      <% end %>
+    </div>
+    <div class="container">
+      <h4 class="card-title pr-3 my-3 packet-title "><%= packet.title %></h4>
+      <strong><p class= "card-text pr-3 packet-title"><%= packet.category&.name %></p></strong>
+
       </div>
     <% end %>
     <div class="container">
