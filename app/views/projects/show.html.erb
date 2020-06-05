@@ -16,20 +16,25 @@
       <i class="fa fa-pencil-alt"></i>
       <%= link_to "Account", user_path(current_user), class: "example_e" %>
     </div>
-    <div class="container d-flex justify-content-center">
+
+    <div class="container">
       <h3>These are the tools you need:</h3>
-    </div>
-    <div class="tool-cards-grid">
-      <% @tools.each do |tool| %>
-       <div class = "card tool-card ">
-          <div class="container d-flex flex-column align-items-center py-2">
-           <span class="tool-circle"><i class="<%= tool.icon_image %> tool-icon"></i></span>
-          <strong><%= tool.name %></strong>
+      <div class="row justify-content-center p-5">
+        <% @tools.each do |tool| %>
+          <div class="col-3">
+            <div class = "card tool-card ">
+              <div class="container d-flex flex-column align-items-center py-2">
+                <span class="tool-circle"><i class="<%= tool.icon_image %> tool-icon"></i></span>
+                <strong><%= tool.name %></strong>
+              </div>
+            </div>
           </div>
-       </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-    <div class="container grid p-5">
+
+    </div>
+    <div class="container grid pl-5 pr-5 pb-5">
       <div class="project-cards">
         <%= render 'shared/packet_card', packets: @packets %>
       </div>
