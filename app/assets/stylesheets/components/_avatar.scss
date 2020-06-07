@@ -8,7 +8,7 @@
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
-
+  cursor: pointer;
 }
 .avatar-bordered {
   width: 40px;
@@ -18,6 +18,8 @@
   border: white 2px solid;
   object-fit: cover;
   background-position: center;
+  cursor: pointer;
+
 }
 .avatar-square {
   width: 40px;
