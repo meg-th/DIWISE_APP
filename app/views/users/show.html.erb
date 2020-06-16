@@ -16,7 +16,7 @@
   <% else %>
   <div class="user-options">
     <ul class="nav nav-tabs justify-content-end list-inline tabs-underlined">
- 
+
       <li class="mx-3 my-3"><a class="tab-underlined" data-toggle="tab" href="#uploads"> <%= @user.username%>'s DIY Uploads</a></li>
     </ul>
   </div>
@@ -51,7 +51,7 @@
         <div class="chatroom-container border border-success p-2">
           <% if @packet_chatrooms.empty? %>
              <h3 class="text-center">
-               No Messages about your Lessons 
+               No messages yet!
              </h3>
            <% else %>
                <div class="d-flex justify-content-center">
@@ -85,7 +85,7 @@
          <div class="chatroom-container border border-success mt-3 p-2">
            <div class="card-grid">
             <% if @started_chatrooms.empty? %>
-              <h3 class="text-center pl-3 pr-3">You have not messaged any user about their lessons</h3>
+              <h3 class="text-center p-1"><i class="fas fa-envelope"></i></h3>
             <% else %>
               <h3 class="text-center">Messages to DI-WISE Users</h3>
             <% end %>
@@ -111,7 +111,7 @@
            </div>
          </div>
       </div>
-      <div id="uploads" class="tab-pane fade show active justify-content-center"> 
+      <div id="uploads" class="tab-pane fade show active justify-content-center">
         <% if @user ==current_user %>
           <h3>Welcome back, <%= @user.username%>! Here are your DIY Uploads:</h3>
         <% else %>
