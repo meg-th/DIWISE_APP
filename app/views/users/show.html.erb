@@ -16,7 +16,6 @@
   <% else %>
   <div class="user-options">
     <ul class="nav nav-tabs justify-content-end list-inline tabs-underlined">
-
       <li class="mx-3 my-3"><a class="tab-underlined" data-toggle="tab" href="#uploads"> <%= @user.username%>'s DIY Uploads</a></li>
     </ul>
   </div>
@@ -108,18 +107,16 @@
         <% if @user ==current_user %>
           <div class="container uploads-container d-flex justify-content-between mb-5 ">
             <%= link_to "+Upload a lesson!", new_packet_path, class: "btn btn-primary btn-md btn-rounded btn-open-card text-center"%>
-            <h2>Welcome back,<%= @user.username%>!</h2>
+            <h2>Welcome back, <%= @user.username%>!</h2>
           </div>
         <% else %>
-          <h2 > Welcome to <%=@user.username%>'s Profile </h2>
+          <h2 class="mb-5" > <%=@user.username%>'s Profile </h2>
         <% end %>  
       
         <div class = "d-flex container justify-content-center">
           <% if @user.packets.exists? %>
             <% if @user==current_user %>
                 <h2 class="text-center mb-5"> Here are your lesson uploads:</h2>
-            <% else %>
-              <h2>Here are <%= @user.username%>'s lesson uploads:</h2>
             <% end %>
           <% else %>
             <% if @user==current_user %>
