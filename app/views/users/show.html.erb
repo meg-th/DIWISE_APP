@@ -40,13 +40,6 @@
   </div>
   <div class="d-flex justify-content-center p-4 user-tab-content">
     <div class="tab-content">
-      <div id="home" class="tab-pane fade in ">
-        <% if @user ==current_user %>
-          <h2>Welcome back, <%= @user.username%>!</h2>
-        <% else %>
-          <h2> <%=@user.username%>'s Profile:</h2>
-        <% end %>
-      </div>
       <div id="messages" class="tab-pane fade">
         <div class="chatroom-container border border-success p-2">
           <% if @packet_chatrooms.empty? %>
@@ -111,16 +104,35 @@
            </div>
          </div>
       </div>
-      <div id="uploads" class="tab-pane fade show active justify-content-center">
+      <div id="uploads" class="tab-pane fade show active">
         <% if @user ==current_user %>
-          <h3>Welcome back, <%= @user.username%>! Here are your DIY Uploads:</h3>
+          <div class="container uploads-container d-flex justify-content-between mb-5 ">
+            <%= link_to "+Upload a lesson!", new_packet_path, class: "btn btn-primary btn-md btn-rounded btn-open-card text-center"%>
+            <h2>Welcome back,<%= @user.username%>!</h2>
+          </div>
         <% else %>
-          <h2> <%=@user.username%>'s Profile </h2>
-        <% end %>
+          <h2 > Welcome to <%=@user.username%>'s Profile </h2>
+        <% end %>  
+      
+        <div class = "d-flex container justify-content-center">
+          <% if @user.packets.exists? %>
+            <% if @user==current_user %>
+                <h2 class="text-center mb-5"> Here are your lesson uploads:</h2>
+            <% else %>
+              <h2>Here are <%= @user.username%>'s lesson uploads:</h2>
+            <% end %>
+          <% else %>
+            <% if @user==current_user %>
+              <h2>No lessons to show</h2>
+            <% else %>
+              <h3><%= @user.username %> has not uploaded any lessons!</h3>
+            <% end %>
+          <% end %>
+        </div>
         <div class="cards">
-        <% @user.packets.each do |packet| %>
-          <div class="card diwise-card">
-          <%= link_to packet_path(packet) do %>
+          <% @user.packets.each do |packet| %>
+            <div class="card diwise-card">
+            <%= link_to packet_path(packet) do %>
             <div class ="px-3 pt-3 mt-2">
               <% if packet.youtube_url.present? %>
                 <iframe height='250px' class = "w-100 "src="http://www.youtube.com/embed/<%= packet.youtube_url %>"></iframe>
@@ -165,12 +177,14 @@
         </div>
       </div>
       <div id="projects" class="tab-pane fade">
-        <div class="d-flex justify-content-around mb-5">
+        <div class="d-flex justify-content-between mb-5 projects-container">
           <%= link_to "+Add a new project!", new_project_path, class: "btn btn-primary btn-md btn-rounded btn-open-card text-center"%>
+          <% if @user.projects.exists? %>
+            <h2 class="text-center mb-5">Your Active Projects</h2>
+          <% else %>
+            <h2 class="text-center mb-5">No Active Projects</h2>
+          <% end %>
         </div>
-        <% if @user.projects.exists? %>
-          <h3 class="text-center mb-5">Your Active Projects</h3>
-        <% end %>
         <div class="container d-flex justify-content-between">
           <div class="cards">
             <% @user.projects.each do |project| %>
